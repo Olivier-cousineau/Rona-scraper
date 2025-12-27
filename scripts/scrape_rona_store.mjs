@@ -13,26 +13,6 @@ const SELECTORS = {
 };
 
 const CLICK_SELECTORS = {
-  storeSelector: [
-    'button:has-text("Magasin")',
-    'button:has-text("Store")',
-    'button:has-text("Choisir un magasin")',
-    'button:has-text("Select store")',
-    '[data-automation="store-selector"]',
-    '[data-testid="store-selector"]',
-  ],
-  findStores: [
-    'button:has-text("Find stores")',
-    'button:has-text("Trouver des magasins")',
-    'button:has-text("Trouver un magasin")',
-    'button:has-text("Rechercher")',
-  ],
-  confirmStore: [
-    'button:has-text("Confirm as my store")',
-    'button:has-text("Confirmer comme mon magasin")',
-    'button:has-text("Confirm")',
-    'button:has-text("Confirmer")',
-  ],
   loadMore: [
     'button:has-text("Load more")',
     'button:has-text("Afficher plus")',
@@ -107,51 +87,11 @@ async function waitForTiles(page, minimumCount = 1) {
   }
 }
 
-async function openStoreSelector(page) {
-  const clicked = await clickFirstVisible(page, CLICK_SELECTORS.storeSelector);
-  if (!clicked) {
-    throw new Error('Unable to open store selector.');
+function resolveClearanceUrl(store) {
+  if (store?.clearanceUrl) {
+    return store.clearanceUrl;
   }
-}
-
-async function selectStore(page, store) {
-  await openStoreSelector(page);
-
-  const inputLocator = page.locator(
-    'input[placeholder*="ville" i], input[placeholder*="city" i], input[placeholder*="postal" i], input[type="search"], input[type="text"]'
-  );
-  await inputLocator.first().fill(store.locationQuery, { timeout: DEFAULT_TIMEOUT });
-
-  const found = await clickFirstVisible(page, CLICK_SELECTORS.findStores, {
-    timeout: DEFAULT_TIMEOUT,
-  });
-  if (!found) {
-    throw new Error('Unable to trigger store search.');
-  }
-
-  const storeMatch = page
-    .getByText(store.name, { exact: false })
-    .first()
-    .or(page.getByText(String(store.id), { exact: false }));
-
-  try {
-    await storeMatch.first().click({ timeout: DEFAULT_TIMEOUT });
-  } catch (error) {
-    const fallback = page.locator('text=Select').first();
-    if (await fallback.isVisible({ timeout: 5000 })) {
-      await fallback.click();
-    } else {
-      throw new Error(`Unable to select store ${store.name} (${store.id}).`);
-    }
-  }
-
-  const confirmed = await clickFirstVisible(page, CLICK_SELECTORS.confirmStore, {
-    timeout: DEFAULT_TIMEOUT,
-  });
-
-  if (!confirmed) {
-    throw new Error('Unable to confirm store selection.');
-  }
+  return CLEARANCE_URL;
 }
 
 async function loadAllProducts(page) {
@@ -195,6 +135,12 @@ async function extractProducts(page) {
         imageElement?.getAttribute('data-src') ||
         imageElement?.getAttribute('data-lazy') ||
         '';
+      const sku =
+        tile.getAttribute('data-sku') ||
+        tile.getAttribute('data-product-id') ||
+        tile.getAttribute('data-product') ||
+        tile.querySelector('[data-sku]')?.getAttribute('data-sku') ||
+        '';
       const regularPriceText =
         textContent('.price--regular, .price--original, .price--was, .was-price, .regular-price') ||
         textContent('[data-automation="regular-price"]');
@@ -212,6 +158,7 @@ async function extractProducts(page) {
         name,
         url,
         image,
+        sku,
         regularPriceText: regularPriceText || priceText,
         salePriceText,
       };
@@ -257,6 +204,7 @@ async function extractProducts(page) {
       name: item.name,
       url,
       image: item.image,
+      sku: item.sku,
       regularPrice,
       salePrice,
       discountPct,
@@ -271,6 +219,7 @@ function toCsv(rows) {
     'name',
     'url',
     'image',
+    'sku',
     'regularPrice',
     'salePrice',
     'discountPct',
@@ -317,25 +266,27 @@ export async function scrapeStore(store) {
   const page = await context.newPage();
   page.setDefaultTimeout(DEFAULT_TIMEOUT);
 
-  let debug = { html: null, screenshot: null };
-
   try {
-    await page.goto(CLEARANCE_URL, { waitUntil: 'domcontentloaded' });
-    await handleOneTrust(page);
-    await selectStore(page, store);
-
-    await page.goto(CLEARANCE_URL, { waitUntil: 'domcontentloaded' });
+    const targetUrl = resolveClearanceUrl(store);
+    await page.goto(targetUrl, { waitUntil: 'domcontentloaded' });
     await handleOneTrust(page);
     await loadAllProducts(page);
 
     const products = await extractProducts(page);
 
-    debug.html = await page.content();
-    debug.screenshot = await page.screenshot({ fullPage: true });
-
-    await writeOutput(store, products, debug);
+    await writeOutput(store, products);
 
     return products;
+  } catch (error) {
+    const debug = { html: null, screenshot: null };
+    try {
+      debug.html = await page.content();
+      debug.screenshot = await page.screenshot({ fullPage: true });
+    } catch (debugError) {
+      // ignore debug capture errors
+    }
+    await writeOutput(store, [], debug);
+    throw error;
   } finally {
     await context.close();
     await browser.close();
