@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import path from 'node:path';
 import { scrapeStore } from './scrape_rona_store.mjs';
 
 function getShardConfig() {
@@ -34,6 +35,22 @@ async function main() {
       console.log(`Finished ${store.slug}`);
     } catch (error) {
       console.error(`Error scraping ${store.slug}:`, error);
+    } finally {
+      const baseDir = path.join('data', 'rona', store.slug);
+      const jsonPath = path.join(baseDir, 'data.json');
+      const csvPath = path.join(baseDir, 'data.csv');
+      try {
+        const jsonStat = await fs.stat(jsonPath);
+        console.log(`[rona] wrote ${jsonPath} (${jsonStat.size} bytes)`);
+      } catch (statError) {
+        // ignore missing json
+      }
+      try {
+        const csvStat = await fs.stat(csvPath);
+        console.log(`[rona] wrote ${csvPath} (${csvStat.size} bytes)`);
+      } catch (statError) {
+        // ignore missing csv
+      }
     }
   }
 }

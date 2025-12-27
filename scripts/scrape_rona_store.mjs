@@ -9,7 +9,7 @@ const DEFAULT_TIMEOUT = 30000;
 
 const SELECTORS = {
   productTiles:
-    'article[data-product], article.product-tile, .product-tile, [data-automation="product-tile"], [data-testid*="product"]',
+    'article[data-product], article.product-tile, .product-tile, .product-item, [data-automation="product-tile"], [data-testid*="product"], li:has(a[href*="/product/"])',
 };
 
 const CLICK_SELECTORS = {
@@ -63,6 +63,46 @@ function computeDiscountPct(regularPrice, salePrice) {
   if (regularPrice <= 0 || salePrice <= 0) return null;
   if (salePrice >= regularPrice) return null;
   return Math.round(((regularPrice - salePrice) / regularPrice) * 100);
+}
+
+async function ensureDir(dirPath) {
+  await fs.mkdir(dirPath, { recursive: true });
+}
+
+async function writeJson(filePath, data) {
+  await ensureDir(path.dirname(filePath));
+  await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf8');
+}
+
+function toCsv(rows) {
+  if (!rows?.length) {
+    return 'name,image,regularPrice,salePrice,discountPct,url\n';
+  }
+  const esc = (value) => `"${String(value ?? '').replace(/"/g, '""')}"`;
+  const header = [
+    'name',
+    'image',
+    'regularPrice',
+    'salePrice',
+    'discountPct',
+    'url',
+  ].join(',');
+  const lines = rows.map((row) =>
+    [
+      esc(row.name),
+      esc(row.image),
+      row.regularPrice ?? '',
+      row.salePrice ?? '',
+      row.discountPct ?? '',
+      esc(row.url),
+    ].join(',')
+  );
+  return [header, ...lines].join('\n') + '\n';
+}
+
+async function writeCsv(filePath, rows) {
+  await ensureDir(path.dirname(filePath));
+  await fs.writeFile(filePath, toCsv(rows), 'utf8');
 }
 
 async function clickFirstVisible(page, selectors, options = {}) {
@@ -243,46 +283,26 @@ async function extractProducts(page) {
   };
 }
 
-function toCsv(rows) {
-  const headers = [
-    'name',
-    'url',
-    'image',
-    'sku',
-    'regularPrice',
-    'salePrice',
-    'discountPct',
-  ];
-  const escape = (value) => {
-    if (value === null || value === undefined) return '';
-    const stringValue = String(value);
-    if (/[",\n]/.test(stringValue)) {
-      return `"${stringValue.replace(/"/g, '""')}"`;
-    }
-    return stringValue;
-  };
-
-  const lines = [headers.join(',')];
-  for (const row of rows) {
-    lines.push(headers.map((key) => escape(row[key])).join(','));
-  }
-  return `${lines.join('\n')}\n`;
-}
-
-async function writeOutput(store, products, debug) {
+async function writeOutput({ store, items, stats, debug }) {
   const baseDir = path.join('data', 'rona', store.slug);
-  await fs.mkdir(baseDir, { recursive: true });
-
   const jsonPath = path.join(baseDir, 'data.json');
   const csvPath = path.join(baseDir, 'data.csv');
 
-  await fs.writeFile(jsonPath, JSON.stringify(products, null, 2));
-  await fs.writeFile(csvPath, toCsv(products));
+  await writeJson(jsonPath, {
+    store: { slug: store.slug, name: store.name },
+    scrapedAt: new Date().toISOString(),
+    count: items.length,
+    items,
+    stats,
+  });
+  await writeCsv(csvPath, items);
 
   if (debug?.html) {
-    await fs.writeFile(path.join(baseDir, 'debug.html'), debug.html);
+    await ensureDir(baseDir);
+    await fs.writeFile(path.join(baseDir, 'debug.html'), debug.html, 'utf8');
   }
   if (debug?.screenshot) {
+    await ensureDir(baseDir);
     await fs.writeFile(path.join(baseDir, 'debug.png'), debug.screenshot);
   }
 }
@@ -293,6 +313,7 @@ export async function scrapeStore(store) {
   let tilesCount = 0;
   let parsedCount = 0;
   let keptCount = 0;
+  let products = [];
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({
     viewport: { width: 1280, height: 720 },
@@ -305,14 +326,35 @@ export async function scrapeStore(store) {
     await page.goto(targetUrl, { waitUntil: 'domcontentloaded' });
     await handleOneTrust(page);
     await loadAllProducts(page);
-    tilesCount = await page.locator(SELECTORS.productTiles).count();
+    const tilesLocator = page.locator(SELECTORS.productTiles);
+    tilesCount = await tilesLocator.count();
 
-    const { products, parsedCount: parsed, keptCount: kept } =
-      await extractProducts(page);
+    if (tilesCount === 0) {
+      console.log(`[rona] tiles=0 url=${page.url()}`);
+      const baseDir = path.join('data', 'rona', store.slug);
+      await ensureDir(baseDir);
+      await fs.writeFile(
+        path.join(baseDir, 'debug.html'),
+        await page.content(),
+        'utf8'
+      );
+      await page.screenshot({
+        path: path.join(baseDir, 'debug.png'),
+        fullPage: true,
+      });
+    }
+
+    const extracted = await extractProducts(page);
+    products = extracted.products;
+    const { parsedCount: parsed, keptCount: kept } = extracted;
     parsedCount = parsed;
     keptCount = kept;
 
-    await writeOutput(store, products);
+    await writeOutput({
+      store,
+      items: products,
+      stats: { tiles: tilesCount, parsedCount, keptCount },
+    });
 
     const ms = Date.now() - t0;
     logStoreSummary({
@@ -343,7 +385,12 @@ export async function scrapeStore(store) {
     } catch (debugError) {
       // ignore debug capture errors
     }
-    await writeOutput(store, [], debug);
+    await writeOutput({
+      store,
+      items: products,
+      stats: { tiles: tilesCount, parsedCount, keptCount },
+      debug,
+    });
     throw error;
   } finally {
     await context.close();
