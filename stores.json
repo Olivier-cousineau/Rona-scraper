@@ -3,7 +3,8 @@
     "id": 41320,
     "name": "RONA Saint-Jérôme",
     "slug": "rona-saint-jerome-41320",
-    "locationQuery": "Saint-Jérôme"
+    "locationQuery": "Saint-Jérôme",
+    "clearanceUrl": "https://www.rona.ca/webapp/wcs/stores/servlet/RonaPromoClearanceView?catalogId=10051&storeId=10151&langId=-2&pageSize=infinite&content=PromoClearance&page=1"
   },
   {
     "id": 1877,
@@ -15,7 +16,8 @@
     "id": 43390,
     "name": "RONA Blainville",
     "slug": "rona-blainville-43390",
-    "locationQuery": "Blainville"
+    "locationQuery": "Blainville",
+    "clearanceUrl": "https://www.rona.ca/webapp/wcs/stores/servlet/RonaPromoClearanceView?catalogId=10051&storeId=10151&langId=-2&pageSize=infinite&content=PromoClearance&page=1"
   },
   {
     "id": 3655,
