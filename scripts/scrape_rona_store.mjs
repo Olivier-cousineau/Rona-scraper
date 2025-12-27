@@ -497,6 +497,12 @@ export async function scrapeStore(store) {
   let products = [];
   const captured = [];
   const responseUrls = [];
+  let candidateResponses = 0;
+  const maxCaptures = 20;
+  const minCaptureSize = 2000;
+  const maxCaptureSize = 5 * 1024 * 1024;
+  const captureMatchers =
+    /PromoClearance|Search|Catalog|GetCatalog|wcs|api|products/i;
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({
     viewport: { width: 1280, height: 720 },
@@ -506,20 +512,109 @@ export async function scrapeStore(store) {
   page.on('response', async (res) => {
     try {
       const url = res.url();
-      responseUrls.push(url);
-      const ct = (res.headers()['content-type'] || '').toLowerCase();
-      if (!ct.includes('application/json')) return;
-      if (!/catalog|search|product|entry|promo|clearance|wcs|api/i.test(url)) {
+      const headers = res.headers();
+      const ct = (headers['content-type'] || '').toLowerCase();
+      const resourceType = res.request().resourceType();
+      responseUrls.push({
+        url,
+        status: res.status(),
+        ct,
+        resourceType,
+      });
+
+      if (!['xhr', 'fetch', 'document'].includes(resourceType)) {
         return;
       }
-      const data = await res.json();
-      if (JSON.stringify(data).length > 5000) {
-        captured.push({ url, data });
+      if (!captureMatchers.test(url)) {
+        return;
+      }
+      candidateResponses += 1;
+      if (captured.length >= maxCaptures) return;
+
+      const contentLength = Number.parseInt(headers['content-length'] || '', 10);
+      if (Number.isFinite(contentLength) && contentLength > maxCaptureSize) {
+        return;
+      }
+
+      const bodyText = await res.text();
+      const bodyLength = bodyText.length;
+      if (bodyLength < minCaptureSize || bodyLength > maxCaptureSize) {
+        return;
+      }
+
+      let data = null;
+      let isJson = false;
+      if (ct.includes('json')) {
+        try {
+          data = JSON.parse(bodyText);
+          isJson = true;
+        } catch (error) {
+          // ignore parse errors
+        }
+      }
+
+      captured.push({
+        url,
+        ct,
+        status: res.status(),
+        resourceType,
+        bodyText,
+        bodyLength,
+        data,
+        isJson,
       }
     } catch (error) {
       // ignore response capture errors
     }
   });
+
+  async function writeNetworkDebug(baseDir) {
+    if (responseUrls.length > 0) {
+      const lines = responseUrls.map(
+        (entry) =>
+          `${entry.status}\t${entry.resourceType}\t${entry.ct}\t${entry.url}`
+      );
+      await ensureDir(baseDir);
+      await fs.writeFile(
+        path.join(baseDir, 'network_urls.txt'),
+        `${lines.join('\n')}\n`,
+        'utf8'
+      );
+    }
+
+    if (captured.length > 0) {
+      const sorted = [...captured].sort(
+        (a, b) => (b.bodyLength || 0) - (a.bodyLength || 0)
+      );
+      const picks = sorted.slice(0, 3);
+      await ensureDir(baseDir);
+      for (const [index, entry] of picks.entries()) {
+        const rank = index + 1;
+        const ext = entry.isJson ? 'json' : 'txt';
+        const filename = path.join(baseDir, `network_${rank}.${ext}`);
+        if (entry.isJson && entry.data) {
+          await fs.writeFile(
+            filename,
+            JSON.stringify(entry.data, null, 2),
+            'utf8'
+          );
+        } else {
+          await fs.writeFile(filename, entry.bodyText ?? '', 'utf8');
+        }
+      }
+    }
+
+    console.log(`[rona] responses total=${responseUrls.length}`);
+    console.log(`[rona] xhr/fetch candidates=${candidateResponses}`);
+    if (captured.length > 0) {
+      const biggest = [...captured].sort(
+        (a, b) => (b.bodyLength || 0) - (a.bodyLength || 0)
+      )[0];
+      console.log(
+        `[rona] biggest capture url=${biggest.url} ct=${biggest.ct} bytes=${biggest.bodyLength}`
+      );
+    }
+  }
 
   try {
     const targetUrl = resolveClearanceUrl(store);
@@ -543,7 +638,7 @@ export async function scrapeStore(store) {
         fullPage: true,
       });
 
-      console.log(`[rona] captured json endpoints=${captured.length}`);
+      console.log(`[rona] captured endpoints=${captured.length}`);
       if (captured[0]?.url) {
         console.log(`[rona] captured[0].url=${captured[0].url}`);
       }
@@ -562,17 +657,6 @@ export async function scrapeStore(store) {
           keptCount = extractedFromJson.products.length;
           parsedCount = extractedFromJson.products.length;
         }
-      } else {
-        const filteredUrls = responseUrls.filter((url) =>
-          /search|catalog|wcs/i.test(url)
-        );
-        if (filteredUrls.length > 0) {
-          await fs.writeFile(
-            path.join(baseDir, 'network_urls.txt'),
-            `${filteredUrls.join('\n')}\n`,
-            'utf8'
-          );
-        }
       }
     }
 
@@ -584,6 +668,8 @@ export async function scrapeStore(store) {
       keptCount = kept;
     }
 
+    const baseDir = path.join('data', 'rona', store.slug);
+    await writeNetworkDebug(baseDir);
     await writeOutput({
       store,
       items: products,
@@ -612,6 +698,8 @@ export async function scrapeStore(store) {
       ms,
       reason: error.message,
     });
+    const baseDir = path.join('data', 'rona', store.slug);
+    await writeNetworkDebug(baseDir);
     const debug = { html: null, screenshot: null };
     try {
       debug.html = await page.content();
