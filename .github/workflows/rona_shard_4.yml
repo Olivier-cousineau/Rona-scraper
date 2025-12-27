@@ -1,0 +1,38 @@
+name: Rona shard 4
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Scrape shard 4
+        env:
+          SHARD_INDEX: '4'
+          TOTAL_SHARDS: '4'
+        run: node scripts/run_rona_shard.mjs
+
+      - name: Upload shard artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rona-shard-4
+          path: |
+            data/rona/**/data.json
+            data/rona/**/data.csv
+            data/rona/**/debug.html
+            data/rona/**/debug.png
+          if-no-files-found: warn

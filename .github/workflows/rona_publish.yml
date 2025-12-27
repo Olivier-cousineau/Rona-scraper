@@ -1,0 +1,63 @@
+name: Rona publish
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download shard 1 artifact
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: rona_shard_1.yml
+          name: rona-shard-1
+          path: artifacts/shard-1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download shard 2 artifact
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: rona_shard_2.yml
+          name: rona-shard-2
+          path: artifacts/shard-2
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download shard 3 artifact
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: rona_shard_3.yml
+          name: rona-shard-3
+          path: artifacts/shard-3
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download shard 4 artifact
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: rona_shard_4.yml
+          name: rona-shard-4
+          path: artifacts/shard-4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Merge artifacts
+        run: |
+          mkdir -p data/rona
+          for shard in 1 2 3 4; do
+            if [ -d "artifacts/shard-${shard}/data/rona" ]; then
+              rsync -a "artifacts/shard-${shard}/data/rona/" data/rona/
+            fi
+          done
+
+      - name: Commit and push data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/rona
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          git commit -m "Update RONA clearance data"
+          git push

@@ -1,0 +1,12 @@
+{
+  "name": "rona-scraper",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scrape:store": "node scripts/scrape_rona_store.mjs",
+    "scrape:shard": "node scripts/run_rona_shard.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.49.1"
+  }
+}
