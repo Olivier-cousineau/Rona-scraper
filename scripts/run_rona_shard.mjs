@@ -23,6 +23,16 @@ async function main() {
   const shardStores = stores.filter(
     (_, index) => index % totalShards === shardIndex - 1
   );
+  const summary = {
+    shardIndex,
+    totalShards,
+    storesTotal: shardStores.length,
+    storesOk: 0,
+    storesBlocked: 0,
+    storesError: 0,
+    blockedReasons: {},
+    timestamp: new Date().toISOString(),
+  };
 
   console.log(
     `Running shard ${shardIndex}/${totalShards} with ${shardStores.length} stores.`
@@ -31,10 +41,19 @@ async function main() {
   for (const store of shardStores) {
     try {
       console.log(`Scraping ${store.name} (${store.slug})...`);
-      await scrapeStore(store);
+      const result = await scrapeStore(store);
+      if (result?.status === 'blocked') {
+        summary.storesBlocked += 1;
+        const reason = result.blockedReason || 'unknown';
+        summary.blockedReasons[reason] =
+          (summary.blockedReasons[reason] || 0) + 1;
+      } else {
+        summary.storesOk += 1;
+      }
       console.log(`Finished ${store.slug}`);
     } catch (error) {
       console.error(`Error scraping ${store.slug}:`, error);
+      summary.storesError += 1;
     } finally {
       const baseDir = path.join('data', 'rona', store.slug);
       const jsonPath = path.join(baseDir, 'data.json');
@@ -53,6 +72,14 @@ async function main() {
       }
     }
   }
+
+  const summaryDir = path.join('data', 'rona', `shard-${shardIndex}`);
+  await fs.mkdir(summaryDir, { recursive: true });
+  const summaryPath = path.join(summaryDir, 'summary.json');
+  await fs.writeFile(summaryPath, JSON.stringify(summary, null, 2), 'utf8');
+  console.log(
+    `[rona] shard summary storesOk=${summary.storesOk} storesBlocked=${summary.storesBlocked} storesError=${summary.storesError}`
+  );
 }
 
 main().catch((error) => {

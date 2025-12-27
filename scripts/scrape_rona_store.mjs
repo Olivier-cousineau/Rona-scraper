@@ -484,7 +484,17 @@ async function extractProducts(page) {
   };
 }
 
-async function writeOutput({ store, items, stats, debug, status = 'scraped', blocked = false }) {
+async function writeOutput({
+  store,
+  items,
+  stats,
+  debug,
+  status = 'scraped',
+  blocked = false,
+  blockedBy = null,
+  meta = null,
+  blockedReason = null,
+}) {
   const baseDir = path.join('data', 'rona', store.slug);
   const jsonPath = path.join(baseDir, 'data.json');
   const csvPath = path.join(baseDir, 'data.csv');
@@ -494,11 +504,19 @@ async function writeOutput({ store, items, stats, debug, status = 'scraped', blo
     scrapedAt: new Date().toISOString(),
     status,
     blocked,
+    blockedBy,
+    blockedReason,
+    meta,
     count: items.length,
     items,
     stats,
   });
-  await writeCsv(csvPath, items);
+  if (blocked) {
+    await ensureDir(path.dirname(csvPath));
+    await fs.writeFile(csvPath, 'BLOCKED\n', 'utf8');
+  } else {
+    await writeCsv(csvPath, items);
+  }
 
   if (debug?.html) {
     await ensureDir(baseDir);
@@ -519,6 +537,8 @@ export async function scrapeStore(store) {
   let products = [];
   let status = 'scraped';
   let blocked = false;
+  let blockedBy = null;
+  let blockedReason = null;
   const captured = [];
   const responseUrls = [];
   let candidateResponses = 0;
@@ -640,6 +660,26 @@ export async function scrapeStore(store) {
     }
   }
 
+  function buildCaptureMeta() {
+    const meta = {
+      responsesTotal: responseUrls.length,
+      xhrFetchCandidates: candidateResponses,
+      biggestCapture: null,
+      timestamp: new Date().toISOString(),
+    };
+    if (captured.length > 0) {
+      const biggest = [...captured].sort(
+        (a, b) => (b.bodyLength || 0) - (a.bodyLength || 0)
+      )[0];
+      meta.biggestCapture = {
+        url: biggest.url,
+        ct: biggest.ct,
+        bytes: biggest.bodyLength,
+      };
+    }
+    return meta;
+  }
+
   try {
     const targetUrl = resolveClearanceUrl(store);
     await page.goto(targetUrl, { waitUntil: 'domcontentloaded' });
@@ -648,6 +688,8 @@ export async function scrapeStore(store) {
     if (wafCheck.blocked) {
       status = 'blocked';
       blocked = true;
+      blockedBy = 'cloudflare';
+      blockedReason = wafCheck.reason;
       console.log(
         `[rona] BLOCKED store=${store.slug} name="${store.name}" reason="${wafCheck.reason}"`
       );
@@ -667,9 +709,12 @@ export async function scrapeStore(store) {
         debug,
         status,
         blocked,
+        blockedBy,
+        blockedReason,
+        meta: buildCaptureMeta(),
       });
       console.log(`[rona] END store=${store.slug}`);
-      return [];
+      return { status, blockedBy, blockedReason, count: 0 };
     }
     await loadAllProducts(page);
     const tilesLocator = page.locator(SELECTORS.productTiles);
@@ -727,6 +772,9 @@ export async function scrapeStore(store) {
       stats: { tiles: tilesCount, parsedCount, keptCount },
       status,
       blocked,
+      blockedBy,
+      blockedReason,
+      meta: buildCaptureMeta(),
     });
 
     const ms = Date.now() - t0;
@@ -739,7 +787,7 @@ export async function scrapeStore(store) {
       ms,
     });
     console.log(`[rona] END store=${store.slug}`);
-    return products;
+    return { status, blockedBy, blockedReason, count: products.length };
   } catch (error) {
     const ms = Date.now() - t0;
     logStoreSummary({
@@ -760,6 +808,7 @@ export async function scrapeStore(store) {
     } catch (debugError) {
       // ignore debug capture errors
     }
+    status = 'error';
     await writeOutput({
       store,
       items: products,
@@ -767,6 +816,9 @@ export async function scrapeStore(store) {
       debug,
       status,
       blocked,
+      blockedBy,
+      blockedReason,
+      meta: buildCaptureMeta(),
     });
     throw error;
   } finally {
