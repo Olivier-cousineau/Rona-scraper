@@ -20,6 +20,19 @@ const CLICK_SELECTORS = {
   ],
 };
 
+function logStoreSummary({ slug, storeName, tiles, parsed, kept, ms, reason }) {
+  const parts = [
+    `[rona] store=${slug}`,
+    storeName ? `name="${storeName}"` : null,
+    `tiles=${tiles}`,
+    `parsed=${parsed}`,
+    `kept50=${kept}`,
+    ms != null ? `ms=${ms}` : null,
+    reason ? `note="${reason}"` : null,
+  ].filter(Boolean);
+  console.log(parts.join(' '));
+}
+
 function parsePrice(raw) {
   if (!raw) return null;
   let cleaned = raw.replace(/[^0-9.,]/g, '');
@@ -167,6 +180,8 @@ async function extractProducts(page) {
 
   const normalized = [];
   const seen = new Set();
+  let parsedCount = 0;
+  let keptCount = 0;
 
   for (const item of tileData) {
     const priceCandidates = extractPricesFromText(item.regularPriceText);
@@ -182,6 +197,10 @@ async function extractProducts(page) {
 
     if (!regularPrice && saleCandidates.length >= 1) {
       regularPrice = saleCandidates[0];
+    }
+
+    if (item.name && Number.isFinite(salePrice)) {
+      parsedCount += 1;
     }
 
     const discountPct = computeDiscountPct(regularPrice, salePrice);
@@ -209,9 +228,19 @@ async function extractProducts(page) {
       salePrice,
       discountPct,
     });
+
+    if (discountPct !== null && discountPct >= 50) {
+      keptCount += 1;
+    }
   }
 
-  return normalized.filter((item) => item.discountPct !== null && item.discountPct >= 50);
+  return {
+    products: normalized.filter(
+      (item) => item.discountPct !== null && item.discountPct >= 50
+    ),
+    parsedCount,
+    keptCount,
+  };
 }
 
 function toCsv(rows) {
@@ -259,6 +288,11 @@ async function writeOutput(store, products, debug) {
 }
 
 export async function scrapeStore(store) {
+  const t0 = Date.now();
+  console.log(`[rona] START store=${store.slug} name="${store.name}"`);
+  let tilesCount = 0;
+  let parsedCount = 0;
+  let keptCount = 0;
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({
     viewport: { width: 1280, height: 720 },
@@ -271,13 +305,37 @@ export async function scrapeStore(store) {
     await page.goto(targetUrl, { waitUntil: 'domcontentloaded' });
     await handleOneTrust(page);
     await loadAllProducts(page);
+    tilesCount = await page.locator(SELECTORS.productTiles).count();
 
-    const products = await extractProducts(page);
+    const { products, parsedCount: parsed, keptCount: kept } =
+      await extractProducts(page);
+    parsedCount = parsed;
+    keptCount = kept;
 
     await writeOutput(store, products);
 
+    const ms = Date.now() - t0;
+    logStoreSummary({
+      slug: store.slug,
+      storeName: store.name,
+      tiles: tilesCount,
+      parsed: parsedCount,
+      kept: keptCount,
+      ms,
+    });
+    console.log(`[rona] END store=${store.slug}`);
     return products;
   } catch (error) {
+    const ms = Date.now() - t0;
+    logStoreSummary({
+      slug: store.slug,
+      storeName: store.name,
+      tiles: tilesCount,
+      parsed: parsedCount,
+      kept: keptCount,
+      ms,
+      reason: error.message,
+    });
     const debug = { html: null, screenshot: null };
     try {
       debug.html = await page.content();
