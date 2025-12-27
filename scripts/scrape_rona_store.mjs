@@ -562,7 +562,7 @@ export async function scrapeStore(store) {
         bodyLength,
         data,
         isJson,
-      }
+      });
     } catch (error) {
       // ignore response capture errors
     }
