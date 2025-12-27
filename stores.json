@@ -1,0 +1,2432 @@
+[
+  {
+    "id": 41320,
+    "name": "RONA Saint-Jérôme",
+    "city": "Saint-Jérôme",
+    "province": "Québec"
+  },
+  {
+    "id": 1877,
+    "name": "RONA Ferronnerie St-Janvier Inc. / Mirabel",
+    "city": "Mirabel",
+    "province": "Québec"
+  },
+  {
+    "id": 43390,
+    "name": "RONA Blainville",
+    "city": "Blainville",
+    "province": "Québec"
+  },
+  {
+    "id": 3655,
+    "name": "RONA Centre de Rénovation Sainte-Thérèse",
+    "city": "Sainte-Thérèse",
+    "province": "Québec"
+  },
+  {
+    "id": 76090,
+    "name": "RONA+ Rosemère",
+    "city": "Rosemère",
+    "province": "Québec"
+  },
+  {
+    "id": 7869,
+    "name": "RONA Bois-des-Filion",
+    "city": "Bois-des-Filion",
+    "province": "Québec"
+  },
+  {
+    "id": 41340,
+    "name": "L'entrepôt RONA Saint-Eustache",
+    "city": "Saint-Eustache",
+    "province": "Québec"
+  },
+  {
+    "id": 1270,
+    "name": "Marchand propriétaire Arthur Rivest Inc.",
+    "city": "Sainte-Julienne",
+    "province": "Québec"
+  },
+  {
+    "id": 41090,
+    "name": "L'entrepôt RONA Mascouche",
+    "city": "Mascouche",
+    "province": "Québec"
+  },
+  {
+    "id": 7611,
+    "name": "RONA Vimont / Laval",
+    "city": "Laval",
+    "province": "Québec"
+  },
+  {
+    "id": 41010,
+    "name": "L'entrepôt RONA Laval",
+    "city": "Laval",
+    "province": "Québec"
+  },
+  {
+    "id": 8815,
+    "name": "Matériaux Godin et Fils Lachute",
+    "city": "Lachute",
+    "province": "Québec"
+  },
+  {
+    "id": 1868,
+    "name": "RONA Centre de rénovation Réal Riopel Inc. / Entrelacs",
+    "city": "Entrelacs",
+    "province": "Québec"
+  },
+  {
+    "id": 76030,
+    "name": "RONA+ Laval",
+    "city": "Laval",
+    "province": "Québec"
+  },
+  {
+    "id": 3425,
+    "name": "RONA Quincaillerie Benoit Inc. / Laval",
+    "city": "Laval",
+    "province": "Québec"
+  },
+  {
+    "id": 76140,
+    "name": "RONA+ Ste-Dorothée",
+    "city": "Laval",
+    "province": "Québec"
+  },
+  {
+    "id": 4921,
+    "name": "RONA Quincaillerie Métro / Laval",
+    "city": "Laval",
+    "province": "Québec"
+  },
+  {
+    "id": 7995,
+    "name": "RONA Tinsco  / Rawdon",
+    "city": "Rawdon",
+    "province": "Québec"
+  },
+  {
+    "id": 44020,
+    "name": "RONA Pont-Viau",
+    "city": "Laval",
+    "province": "Québec"
+  },
+  {
+    "id": 4117,
+    "name": "RONA Quincaillerie Guy Racine / Laval",
+    "city": "Laval",
+    "province": "Québec"
+  },
+  {
+    "id": 1008,
+    "name": "RONA Major & Major Inc. / Montréal",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 76020,
+    "name": "RONA+ Anjou",
+    "city": "Anjou",
+    "province": "Québec"
+  },
+  {
+    "id": 6460,
+    "name": "Centre de rénovation Oka",
+    "city": "Oka",
+    "province": "Québec"
+  },
+  {
+    "id": 41450,
+    "name": "RONA Pierrefonds",
+    "city": "Pierrefonds",
+    "province": "Québec"
+  },
+  {
+    "id": 41440,
+    "name": "RONA+ Charlemagne",
+    "city": "Charlemagne",
+    "province": "Québec"
+  },
+  {
+    "id": 76050,
+    "name": "RONA+ Marché Central",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 76040,
+    "name": "RONA+ Pointe-Claire",
+    "city": "Pointe-Claire",
+    "province": "Québec"
+  },
+  {
+    "id": 41110,
+    "name": "L'entrepôt RONA Anjou",
+    "city": "Anjou",
+    "province": "Québec"
+  },
+  {
+    "id": 1166,
+    "name": "RONA Villeray / Montréal",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 41020,
+    "name": "L'entrepôt RONA Saint-Laurent",
+    "city": "Saint-Laurent",
+    "province": "Québec"
+  },
+  {
+    "id": 1705,
+    "name": "RONA Quincaillerie Beaubien / Montréal",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 42480,
+    "name": "RONA Repentigny",
+    "city": "Repentigny",
+    "province": "Québec"
+  },
+  {
+    "id": 6465,
+    "name": "RONA Des Ormeaux / Montréal",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 781,
+    "name": "RONA Quincaillerie C. Bélanger Ltée / Montréal",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 7430,
+    "name": "RONA Quincaillerie du Plateau",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 4761,
+    "name": "RONA Quincaillerie Delorimier Inc. / Montréal",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 1296,
+    "name": "RONA Quincaillerie Jean Hebert Inc. / Montréal",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 7590,
+    "name": "Quincaillerie Rachel",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 76190,
+    "name": "RONA+ Vaudreuil",
+    "city": "Vaudreuil-Dorion",
+    "province": "Québec"
+  },
+  {
+    "id": 7271,
+    "name": "RONA Bois Idéal Inc. / Montréal",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 2892,
+    "name": "RONA Quincaillerie Maisonneuve / Montréal",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 2885,
+    "name": "Quincaillerie Moussette",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 3414,
+    "name": "RONA Pincourt",
+    "city": "Pincourt",
+    "province": "Québec"
+  },
+  {
+    "id": 43370,
+    "name": "RONA Boucherville",
+    "city": "Boucherville",
+    "province": "Québec"
+  },
+  {
+    "id": 76100,
+    "name": "RONA+ NDG",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 43200,
+    "name": "RONA Montréal (Réno DG)",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 1849,
+    "name": "RONA Centre du bricoleur Lachine / Lachine",
+    "city": "Lachine",
+    "province": "Québec"
+  },
+  {
+    "id": 2909,
+    "name": "RONA Quincaillerie Notre-Dame St-Henri / Montréal",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 6363,
+    "name": "Roch Gauthier & Fils (Les Cèdres)",
+    "city": "Les Cedres",
+    "province": "Québec"
+  },
+  {
+    "id": 6098,
+    "name": "RONA Centre de Rénovation St-Patrick / Montréal",
+    "city": "Montréal",
+    "province": "Québec"
+  },
+  {
+    "id": 8805,
+    "name": "Matériaux Godin et Fils Grenville",
+    "city": "Grenville",
+    "province": "Québec"
+  },
+  {
+    "id": 76220,
+    "name": "RONA+ LaSalle",
+    "city": "LaSalle",
+    "province": "Québec"
+  },
+  {
+    "id": 76250,
+    "name": "RONA+ Boucherville",
+    "city": "Boucherville",
+    "province": "Québec"
+  },
+  {
+    "id": 5203,
+    "name": "RONA Quincaillerie de la Promenade / Verdun",
+    "city": "Verdun",
+    "province": "Québec"
+  },
+  {
+    "id": 42420,
+    "name": "RONA Longueuil (Roland-Therrien)",
+    "city": "Longueuil",
+    "province": "Québec"
+  },
+  {
+    "id": 1429,
+    "name": "RONA Ferronnerie A. Leduc Inc. / Longueuil",
+    "city": "Longueuil",
+    "province": "Québec"
+  },
+  {
+    "id": 41330,
+    "name": "L'entrepôt RONA Joliette",
+    "city": "Notre-Dame-des-Prairies",
+    "province": "Québec"
+  },
+  {
+    "id": 43020,
+    "name": "RONA Longueuil (Jacques-Cartier)",
+    "city": "Longueuil",
+    "province": "Québec"
+  },
+  {
+    "id": 43360,
+    "name": "RONA Boucherville",
+    "city": "Boucherville",
+    "province": "Québec"
+  },
+  {
+    "id": 8760,
+    "name": "Groupe Matériaux Godin L'Orignal",
+    "city": "L'Orignal",
+    "province": "Ontario"
+  },
+  {
+    "id": 44280,
+    "name": "RONA Châteauguay Principale",
+    "city": "Châteauguay",
+    "province": "Québec"
+  },
+  {
+    "id": 42310,
+    "name": "RONA Châteauguay",
+    "city": "Châteauguay",
+    "province": "Québec"
+  },
+  {
+    "id": 16332,
+    "name": "RONA Forget / Mont-Tremblant",
+    "city": "Mont-Tremblant",
+    "province": "Québec"
+  },
+  {
+    "id": 76070,
+    "name": "RONA+ St-Hubert",
+    "city": "Saint-Hubert",
+    "province": "Québec"
+  },
+  {
+    "id": 2090,
+    "name": "RONA Quincaillerie A. Pouliot Beauharnois",
+    "city": "Beauharnois",
+    "province": "Québec"
+  },
+  {
+    "id": 76010,
+    "name": "RONA+ Brossard",
+    "city": "Brossard",
+    "province": "Québec"
+  },
+  {
+    "id": 43030,
+    "name": "RONA Sainte-Julie",
+    "city": "Sainte-Julie",
+    "province": "Québec"
+  },
+  {
+    "id": 44050,
+    "name": "RONA Saint-Constant",
+    "city": "Saint-Constant",
+    "province": "Québec"
+  },
+  {
+    "id": 41040,
+    "name": "L'entrepôt RONA Saint-Bruno-de-Montarville",
+    "city": "Saint-Bruno",
+    "province": "Québec"
+  },
+  {
+    "id": 41460,
+    "name": "L'entrepôt RONA Brossard (Dix/30)",
+    "city": "Brossard",
+    "province": "Québec"
+  },
+  {
+    "id": 6354,
+    "name": "RONA Roch Gauthier & Fils / Saint-Polycarpe",
+    "city": "Saint-Polycarpe",
+    "province": "Québec"
+  },
+  {
+    "id": 76180,
+    "name": "RONA+ Candiac",
+    "city": "Candiac",
+    "province": "Québec"
+  },
+  {
+    "id": 2091,
+    "name": "RONA Quincaillerie A. Pouliot Sainte-Martine",
+    "city": "Sainte-Martine",
+    "province": "Québec"
+  },
+  {
+    "id": 7751,
+    "name": "RONA Quincaillerie Larocque / Salaberry-de-Valleyfield",
+    "city": "Salaberry-de-Valleyfield",
+    "province": "Québec"
+  },
+  {
+    "id": 41520,
+    "name": "RONA Beloeil",
+    "city": "Beloeil",
+    "province": "Québec"
+  },
+  {
+    "id": 2092,
+    "name": "RONA Quincaillerie A. Pouliot Saint-Rémi",
+    "city": "Saint-Rémi",
+    "province": "Québec"
+  },
+  {
+    "id": 43050,
+    "name": "RONA Tracy",
+    "city": "Sorel-Tracy",
+    "province": "Québec"
+  },
+  {
+    "id": 7807,
+    "name": "RONA Quincaillerie Piette / Saint-Gabriel-de-Brandon",
+    "city": "Saint-Gabriel-de-Brandon",
+    "province": "Québec"
+  },
+  {
+    "id": 8825,
+    "name": "Matériaux Godin et Fils Namur",
+    "city": "Namur",
+    "province": "Québec"
+  },
+  {
+    "id": 7100,
+    "name": "RONA R.S. D'Amour & Fils Inc. / Ormstown",
+    "city": "Ormstown",
+    "province": "Québec"
+  },
+  {
+    "id": 41350,
+    "name": "L'entrepôt RONA Saint-Jean-sur-Richelieu",
+    "city": "Saint-Jean-sur-Richelieu",
+    "province": "Québec"
+  },
+  {
+    "id": 397,
+    "name": "RONA Iberville",
+    "city": "Saint-Jean-sur-Richelieu",
+    "province": "Québec"
+  },
+  {
+    "id": 5179,
+    "name": "RONA Quincaillerie André Laberge Inc. / Huntingdon",
+    "city": "Huntingdon",
+    "province": "Québec"
+  },
+  {
+    "id": 41400,
+    "name": "L'entrepôt RONA Saint-Hyacinthe",
+    "city": "Saint-Hyacinthe",
+    "province": "Québec"
+  },
+  {
+    "id": 2360,
+    "name": "RONA de la Haute Matawinie / Saint-Zénon",
+    "city": "Saint-Zénon",
+    "province": "Québec"
+  },
+  {
+    "id": 8336,
+    "name": "RONA Outaouais Papineauville",
+    "city": "Papineauville",
+    "province": "Québec"
+  },
+  {
+    "id": 6775,
+    "name": "RONA Ducharme & Frère / Saint-Césaire",
+    "city": "Saint-Cesaire",
+    "province": "Québec"
+  },
+  {
+    "id": 2742,
+    "name": "RONA Ducharme & Frère / Saint-Pie",
+    "city": "Saint-Pie",
+    "province": "Québec"
+  },
+  {
+    "id": 10035,
+    "name": "RONA Quincaillerie Hemmingford Inc",
+    "city": "Hemmingford",
+    "province": "Québec"
+  },
+  {
+    "id": 1326,
+    "name": "RONA Deslongchamps / Rivière-Rouge",
+    "city": "Rivière-Rouge",
+    "province": "Québec"
+  },
+  {
+    "id": 11050,
+    "name": "RONA Quincaillerie de Lacolle Inc.",
+    "city": "Lacolle",
+    "province": "Québec"
+  },
+  {
+    "id": 1930,
+    "name": "RONA de la Haute Matawinie / Saint-Michel-des-Saints",
+    "city": "Saint-Michel-des-Saints",
+    "province": "Québec"
+  },
+  {
+    "id": 3850,
+    "name": "RONA Ducharme & Frère / Farnham",
+    "city": "Farnham",
+    "province": "Québec"
+  },
+  {
+    "id": 2228,
+    "name": "RONA J.Lalonde & Fils / Hammond",
+    "city": "Hammond",
+    "province": "Ontario"
+  },
+  {
+    "id": 2444,
+    "name": "RONA J.Lalonde & Fils / Rockland",
+    "city": "Rockland",
+    "province": "Ontario"
+  },
+  {
+    "id": 41380,
+    "name": "L'entrepôt RONA Granby",
+    "city": "Granby",
+    "province": "Québec"
+  },
+  {
+    "id": 8335,
+    "name": "RONA Outaouais Buckingham",
+    "city": "Gatineau",
+    "province": "Québec"
+  },
+  {
+    "id": 43190,
+    "name": "RONA Gatineau (BSRB)",
+    "city": "Gatineau",
+    "province": "Québec"
+  },
+  {
+    "id": 76230,
+    "name": "RONA+ Drummondville",
+    "city": "Drummondville",
+    "province": "Québec"
+  },
+  {
+    "id": 2570,
+    "name": "RONA Rosaire Mathieu Inc. / Wickham",
+    "city": "Wickham",
+    "province": "Québec"
+  },
+  {
+    "id": 6944,
+    "name": "RONA La Coop Agricole d'Embrun Ltd",
+    "city": "Embrun",
+    "province": "Ontario"
+  },
+  {
+    "id": 43100,
+    "name": "RONA Cowansville",
+    "city": "Cowansville",
+    "province": "Québec"
+  },
+  {
+    "id": 43090,
+    "name": "RONA Bromont",
+    "city": "Bromont",
+    "province": "Québec"
+  },
+  {
+    "id": 13466,
+    "name": "RONA Marché Bouvette Inc. / Saint-Cyrille-de-Wendover",
+    "city": "Saint-Cyrille-de-Wendover",
+    "province": "Québec"
+  },
+  {
+    "id": 88009,
+    "name": "RONA+  Orléans",
+    "city": "Orleans",
+    "province": "Ontario"
+  },
+  {
+    "id": 41050,
+    "name": "L'entrepôt RONA Trois-Rivières",
+    "city": "Trois-Rivières",
+    "province": "Québec"
+  },
+  {
+    "id": 6711,
+    "name": "RONA J. St-Cyr & Frères Ltée / Notre-Dame-du-Mont-Carmel",
+    "city": "Notre-Dame-du-Mont-Carmel",
+    "province": "Québec"
+  },
+  {
+    "id": 43160,
+    "name": "RONA Shawinigan",
+    "city": "Shawinigan",
+    "province": "Québec"
+  },
+  {
+    "id": 8333,
+    "name": "RONA Outaouais Val-des-Monts",
+    "city": "Val-des-Monts",
+    "province": "Québec"
+  },
+  {
+    "id": 10888,
+    "name": "RONA Maloney",
+    "city": "Gatineau",
+    "province": "Québec"
+  },
+  {
+    "id": 17053,
+    "name": "RONA Thomas Caya Inc. / Bon-Conseil",
+    "city": "Bon-Conseil",
+    "province": "Québec"
+  },
+  {
+    "id": 83708,
+    "name": "RONA+ Gloucester",
+    "city": "Gloucester",
+    "province": "Ontario"
+  },
+  {
+    "id": 43120,
+    "name": "RONA Knowlton",
+    "city": "Knowlton",
+    "province": "Québec"
+  },
+  {
+    "id": 8035,
+    "name": "RONA Les Matériaux Laverdure Inc. / Maricourt",
+    "city": "Maricourt",
+    "province": "Québec"
+  },
+  {
+    "id": 43140,
+    "name": "RONA Grand-Mere",
+    "city": "Shawinigan",
+    "province": "Québec"
+  },
+  {
+    "id": 41070,
+    "name": "L'entrepôt RONA Gatineau",
+    "city": "Gatineau",
+    "province": "Québec"
+  },
+  {
+    "id": 76080,
+    "name": "RONA+ Hull",
+    "city": "Gatineau",
+    "province": "Québec"
+  },
+  {
+    "id": 7671,
+    "name": "RONA Deslongchamps / Mont-Laurier",
+    "city": "Mont-Laurier",
+    "province": "Québec"
+  },
+  {
+    "id": 83089,
+    "name": "RONA+ Nepean",
+    "city": "Nepean",
+    "province": "Ontario"
+  },
+  {
+    "id": 41180,
+    "name": "L'entrepôt RONA Gatineau (Le Plateau)",
+    "city": "Gatineau",
+    "province": "Québec"
+  },
+  {
+    "id": 55550,
+    "name": "Home & Garden RONA / Nepean",
+    "city": "Nepean",
+    "province": "Ontario"
+  },
+  {
+    "id": 41190,
+    "name": "RONA Gatineau (Aylmer)",
+    "city": "Gatineau",
+    "province": "Québec"
+  },
+  {
+    "id": 2300,
+    "name": "RONA Manotick",
+    "city": "Manotick",
+    "province": "Ontario"
+  },
+  {
+    "id": 12871,
+    "name": "RONA Quincaillerie R-Cube Inc. / Wakefield",
+    "city": "Wakefield",
+    "province": "Québec"
+  },
+  {
+    "id": 2032,
+    "name": "RONA Giroux & Giroux / Mansonville",
+    "city": "Mansonville",
+    "province": "Québec"
+  },
+  {
+    "id": 88008,
+    "name": "RONA+ Kanata",
+    "city": "Stittsville",
+    "province": "Ontario"
+  },
+  {
+    "id": 1470,
+    "name": "RONA Deslongchamps Maniwaki",
+    "city": "Maniwaki",
+    "province": "Québec"
+  },
+  {
+    "id": 41100,
+    "name": "RONA+ Sherbrooke",
+    "city": "Sherbrooke",
+    "province": "Québec"
+  },
+  {
+    "id": 6270,
+    "name": "RONA Woodlawn",
+    "city": "Woodlawn",
+    "province": "Ontario"
+  },
+  {
+    "id": 6260,
+    "name": "RONA Carp",
+    "city": "Carp",
+    "province": "Ontario"
+  },
+  {
+    "id": 33690,
+    "name": "RONA Carleton Place",
+    "city": "Carleton Place",
+    "province": "Ontario"
+  },
+  {
+    "id": 6917,
+    "name": "RONA M. Sullivan & Son Limited / Arnprior",
+    "city": "Arnprior",
+    "province": "Ontario"
+  },
+  {
+    "id": 33520,
+    "name": "RONA Smiths Falls",
+    "city": "Smiths Falls",
+    "province": "Ontario"
+  },
+  {
+    "id": 8464,
+    "name": "RONA Matériaux Prévost / Cookshire",
+    "city": "Cookshire",
+    "province": "Québec"
+  },
+  {
+    "id": 121,
+    "name": "Placide Martineau Inc. (Saint-Flavien)",
+    "city": "Saint-Flavien",
+    "province": "Québec"
+  },
+  {
+    "id": 43320,
+    "name": "RONA Thetford Mines",
+    "city": "Thetford Mines",
+    "province": "Québec"
+  },
+  {
+    "id": 124,
+    "name": "Placide Martineau Inc. (centre village)",
+    "city": "Saint-Apollinaire",
+    "province": "Québec"
+  },
+  {
+    "id": 120,
+    "name": "Placide Martineau Inc. (Saint-Apollinaire)",
+    "city": "Saint-Apollinaire",
+    "province": "Québec"
+  },
+  {
+    "id": 5099,
+    "name": "RONA Bernard Breton Inc. / Saint-Narcisse-de-Beaurivage",
+    "city": "Saint-Narcisse-de-Beaurivage",
+    "province": "Québec"
+  },
+  {
+    "id": 76210,
+    "name": "RONA+ Ste-Foy",
+    "city": "Québec",
+    "province": "Québec"
+  },
+  {
+    "id": 43210,
+    "name": "RONA Québec",
+    "city": "Québec",
+    "province": "Québec"
+  },
+  {
+    "id": 2710,
+    "name": "Quincaillerie S.C. Roy",
+    "city": "Saint-Ephrem-de-Beauce",
+    "province": "Québec"
+  },
+  {
+    "id": 41030,
+    "name": "RONA+ Québec",
+    "city": "Québec",
+    "province": "Québec"
+  },
+  {
+    "id": 7895,
+    "name": "RONA Quincaillerie Corriveau Inc. / Québec",
+    "city": "Québec",
+    "province": "Québec"
+  },
+  {
+    "id": 1498,
+    "name": "RONA Quincaillerie St-Sacrement Inc. / Québec",
+    "city": "Québec",
+    "province": "Québec"
+  },
+  {
+    "id": 43300,
+    "name": "RONA Ste-Marie",
+    "city": "Sainte-Marie",
+    "province": "Québec"
+  },
+  {
+    "id": 10385,
+    "name": "Quincaillerie Crémazie",
+    "city": "Québec",
+    "province": "Québec"
+  },
+  {
+    "id": 7685,
+    "name": "Quincaillerie St-Jean-Baptiste",
+    "city": "Québec",
+    "province": "Québec"
+  },
+  {
+    "id": 42390,
+    "name": "RONA Lévis",
+    "city": "Lévis",
+    "province": "Québec"
+  },
+  {
+    "id": 76120,
+    "name": "RONA+ Beauport",
+    "city": "Québec",
+    "province": "Québec"
+  },
+  {
+    "id": 8280,
+    "name": "RONA Petawawa",
+    "city": "Petawawa",
+    "province": "Ontario"
+  },
+  {
+    "id": 2851,
+    "name": "RONA Verona Hardware Limited",
+    "city": "Verona",
+    "province": "Ontario"
+  },
+  {
+    "id": 43310,
+    "name": "RONA Saint-Georges",
+    "city": "Saint-Georges",
+    "province": "Québec"
+  },
+  {
+    "id": 55300,
+    "name": "Home & Garden / Kingston",
+    "city": "Kingston",
+    "province": "Ontario"
+  },
+  {
+    "id": 82922,
+    "name": "RONA+ Kingston",
+    "city": "Kingston",
+    "province": "Ontario"
+  },
+  {
+    "id": 137,
+    "name": "RONA Quincaillerie Saint-Camille-de-Lellis",
+    "city": "Saint-Camille-de-Lellis",
+    "province": "Québec"
+  },
+  {
+    "id": 1641,
+    "name": "RONA Bancroft",
+    "city": "Bancroft",
+    "province": "Ontario"
+  },
+  {
+    "id": 5240,
+    "name": "RONA Jos Proulx Inc. / L'Islet",
+    "city": "L'Islet",
+    "province": "Québec"
+  },
+  {
+    "id": 82872,
+    "name": "RONA+ Belleville",
+    "city": "Belleville",
+    "province": "Ontario"
+  },
+  {
+    "id": 8133,
+    "name": "RONA Rollins Building Supplies / Stirling",
+    "city": "Stirling",
+    "province": "Ontario"
+  },
+  {
+    "id": 7370,
+    "name": "RONA Roberval",
+    "city": "Roberval",
+    "province": "Québec"
+  },
+  {
+    "id": 1812,
+    "name": "RONA Ferlac Inc. / Saint-Félicien",
+    "city": "Saint-Felicien",
+    "province": "Québec"
+  },
+  {
+    "id": 33240,
+    "name": "RONA Trenton",
+    "city": "Trenton",
+    "province": "Ontario"
+  },
+  {
+    "id": 33320,
+    "name": "RONA Campbellford",
+    "city": "Campbellford",
+    "province": "Ontario"
+  },
+  {
+    "id": 12454,
+    "name": "RONA La Pocatière",
+    "city": "La Pocatière",
+    "province": "Québec"
+  },
+  {
+    "id": 42360,
+    "name": "RONA Alma",
+    "city": "Alma",
+    "province": "Québec"
+  },
+  {
+    "id": 12988,
+    "name": "RONA Normandin",
+    "city": "Normandin",
+    "province": "Québec"
+  },
+  {
+    "id": 41060,
+    "name": "L'entrepôt RONA Chicoutimi",
+    "city": "Chicoutimi",
+    "province": "Québec"
+  },
+  {
+    "id": 6766,
+    "name": "RONA Dolbeau-Mistassini",
+    "city": "Dolbeau-Mistassini",
+    "province": "Québec"
+  },
+  {
+    "id": 11443,
+    "name": "RONA Quincaillerie L'Ascension",
+    "city": "L'Ascension-de-Notre-Seigneur",
+    "province": "Québec"
+  },
+  {
+    "id": 1338,
+    "name": "RONA Bois Turcotte Ltée / Val-d'Or",
+    "city": "Val-d'Or",
+    "province": "Québec"
+  },
+  {
+    "id": 8569,
+    "name": "RONA Cobourg Building Supplies",
+    "city": "Cobourg",
+    "province": "Ontario"
+  },
+  {
+    "id": 8669,
+    "name": "RONA Port Hope Building Supplies",
+    "city": "Port Hope",
+    "province": "Ontario"
+  },
+  {
+    "id": 7020,
+    "name": "RONA Centre de Renovation Barraute",
+    "city": "Barraute",
+    "province": "Québec"
+  },
+  {
+    "id": 810,
+    "name": "RONA Bois Turcotte Ltée / Malartic",
+    "city": "Malartic",
+    "province": "Québec"
+  },
+  {
+    "id": 33180,
+    "name": "RONA Lindsay",
+    "city": "Lindsay",
+    "province": "Ontario"
+  },
+  {
+    "id": 12453,
+    "name": "RONA Rivière-du-Loup",
+    "city": "Rivière-Du-Loup",
+    "province": "Québec"
+  },
+  {
+    "id": 16397,
+    "name": "RONA Dufour Laurian / Sacre-Coeur-Saguenay",
+    "city": "Sacre-Coeur-Saguenay",
+    "province": "Québec"
+  },
+  {
+    "id": 2131,
+    "name": "RONA The Hardware Store Inc. / Newcastle",
+    "city": "Newcastle",
+    "province": "Ontario"
+  },
+  {
+    "id": 4930,
+    "name": "Bracebridge RONA",
+    "city": "Bracebridge",
+    "province": "Ontario"
+  },
+  {
+    "id": 8885,
+    "name": "RONA Lakeview Builders Supplies / North Bay",
+    "city": "North Bay",
+    "province": "Ontario"
+  },
+  {
+    "id": 4733,
+    "name": "RONA Matériaux Dubreuil / Lebel-sur-Quevillon",
+    "city": "Lebel-sur-Quevillon",
+    "province": "Québec"
+  },
+  {
+    "id": 8963,
+    "name": "RONA North Bay Lakeview",
+    "city": "North Bay",
+    "province": "Ontario"
+  },
+  {
+    "id": 4945,
+    "name": "Port Perry RONA",
+    "city": "Port Perry",
+    "province": "Ontario"
+  },
+  {
+    "id": 924,
+    "name": "RONA Bois Turcotte Ltée / Amos",
+    "city": "Amos",
+    "province": "Québec"
+  },
+  {
+    "id": 82888,
+    "name": "RONA+ Whitby",
+    "city": "Whitby",
+    "province": "Ontario"
+  },
+  {
+    "id": 82741,
+    "name": "RONA+ S. Oshawa",
+    "city": "Oshawa",
+    "province": "Ontario"
+  },
+  {
+    "id": 33220,
+    "name": "RONA Uxbridge",
+    "city": "Uxbridge",
+    "province": "Ontario"
+  },
+  {
+    "id": 83201,
+    "name": "RONA+ Pickering",
+    "city": "Pickering",
+    "province": "Ontario"
+  },
+  {
+    "id": 904,
+    "name": "RONA / Chibougamau",
+    "city": "Chibougamau",
+    "province": "Québec"
+  },
+  {
+    "id": 43230,
+    "name": "RONA Edmundston",
+    "city": "Edmundston",
+    "province": "New Brunswick"
+  },
+  {
+    "id": 43340,
+    "name": "RONA Rouyn-Noranda",
+    "city": "Rouyn-Noranda",
+    "province": "Québec"
+  },
+  {
+    "id": 82494,
+    "name": "RONA+ N. Scarborough",
+    "city": "Scarborough",
+    "province": "Ontario"
+  },
+  {
+    "id": 55050,
+    "name": "RONA Markham",
+    "city": "Unionville",
+    "province": "Ontario"
+  },
+  {
+    "id": 2179,
+    "name": "RONA Parry Sound",
+    "city": "PARRY SOUND",
+    "province": "Ontario"
+  },
+  {
+    "id": 82642,
+    "name": "RONA+ East Gwillimbury",
+    "city": "East Gwillimbury",
+    "province": "Ontario"
+  },
+  {
+    "id": 55340,
+    "name": "Home & Garden RONA / Scarborough Midland",
+    "city": "Scarborough",
+    "province": "Ontario"
+  },
+  {
+    "id": 33270,
+    "name": "RONA New Liskeard",
+    "city": "New Liskeard",
+    "province": "Ontario"
+  },
+  {
+    "id": 55200,
+    "name": "Home & Garden RONA / Barrie",
+    "city": "Barrie",
+    "province": "Ontario"
+  },
+  {
+    "id": 82934,
+    "name": "RONA+ S. Barrie",
+    "city": "Barrie",
+    "province": "Ontario"
+  },
+  {
+    "id": 4925,
+    "name": "Bradford RONA",
+    "city": "Bradford",
+    "province": "Ontario"
+  },
+  {
+    "id": 82633,
+    "name": "RONA+ Golden Mile",
+    "city": "Scarborough",
+    "province": "Ontario"
+  },
+  {
+    "id": 33290,
+    "name": "RONA Midland",
+    "city": "Midland",
+    "province": "Ontario"
+  },
+  {
+    "id": 55030,
+    "name": "RONA North York (Sheppard)",
+    "city": "North York",
+    "province": "Ontario"
+  },
+  {
+    "id": 82632,
+    "name": "RONA+ Maple",
+    "city": "Maple",
+    "province": "Ontario"
+  },
+  {
+    "id": 33880,
+    "name": "RONA Schomberg",
+    "city": "Schomberg",
+    "province": "Ontario"
+  },
+  {
+    "id": 82640,
+    "name": "RONA+ York",
+    "city": "York",
+    "province": "Ontario"
+  },
+  {
+    "id": 55130,
+    "name": "Home & Garden RONA / Toronto Stockyards",
+    "city": "Toronto",
+    "province": "Ontario"
+  },
+  {
+    "id": 55090,
+    "name": "RONA Etobicoke (Martin Grove)",
+    "city": "Etobicoke",
+    "province": "Ontario"
+  },
+  {
+    "id": 83096,
+    "name": "RONA+ Etobicoke",
+    "city": "Etobicoke",
+    "province": "Ontario"
+  },
+  {
+    "id": 55010,
+    "name": "RONA Mississauga (Dundas)",
+    "city": "Mississauga",
+    "province": "Ontario"
+  },
+  {
+    "id": 33740,
+    "name": "RONA St-Catharines",
+    "city": "St Catharines",
+    "province": "Ontario"
+  },
+  {
+    "id": 4910,
+    "name": "Fort Erie RONA",
+    "city": "Fort Erie",
+    "province": "Ontario"
+  },
+  {
+    "id": 83092,
+    "name": "RONA+ Niagara Falls",
+    "city": "Niagara Falls",
+    "province": "Ontario"
+  },
+  {
+    "id": 41680,
+    "name": "RONA Rimouski",
+    "city": "Rimouski",
+    "province": "Québec"
+  },
+  {
+    "id": 82631,
+    "name": "RONA+ S. Brampton",
+    "city": "Brampton",
+    "province": "Ontario"
+  },
+  {
+    "id": 82493,
+    "name": "RONA+ N. Brampton",
+    "city": "Brampton",
+    "province": "Ontario"
+  },
+  {
+    "id": 83162,
+    "name": "RONA+ Central Mississauga",
+    "city": "Mississauga",
+    "province": "Ontario"
+  },
+  {
+    "id": 55460,
+    "name": "RONA Oakville (Windsor Drive)",
+    "city": "Oakville",
+    "province": "Ontario"
+  },
+  {
+    "id": 7549,
+    "name": "RONA Matagami",
+    "city": "Matagami",
+    "province": "Québec"
+  },
+  {
+    "id": 55120,
+    "name": "RONA Mississauga (Erin Mills)",
+    "city": "Mississauga",
+    "province": "Ontario"
+  },
+  {
+    "id": 33730,
+    "name": "Welland RONA",
+    "city": "Welland",
+    "province": "Ontario"
+  },
+  {
+    "id": 4915,
+    "name": "Welland RONA Building Centre",
+    "city": "Welland",
+    "province": "Ontario"
+  },
+  {
+    "id": 55070,
+    "name": "RONA Oakville (Speers Road)",
+    "city": "Oakville",
+    "province": "Ontario"
+  },
+  {
+    "id": 55250,
+    "name": "RONA Georgetown",
+    "city": "Georgetown",
+    "province": "Ontario"
+  },
+  {
+    "id": 6507,
+    "name": "RONA Joël Builders Supplies Ltd. / Wahnapitae",
+    "city": "Wahnapitae",
+    "province": "Ontario"
+  },
+  {
+    "id": 33780,
+    "name": "RONA Grimsby",
+    "city": "Grimsby",
+    "province": "Ontario"
+  },
+  {
+    "id": 83327,
+    "name": "RONA+ Milton",
+    "city": "Milton",
+    "province": "Ontario"
+  },
+  {
+    "id": 83062,
+    "name": "RONA+ N. Burlington",
+    "city": "Burlington",
+    "province": "Ontario"
+  },
+  {
+    "id": 33560,
+    "name": "RONA Hamilton (Parkdale)",
+    "city": "Hamilton",
+    "province": "Ontario"
+  },
+  {
+    "id": 82413,
+    "name": "RONA+ Hamilton N.E.",
+    "city": "Hamilton",
+    "province": "Ontario"
+  },
+  {
+    "id": 83085,
+    "name": "RONA+ N. Sudbury",
+    "city": "Sudbury",
+    "province": "Ontario"
+  },
+  {
+    "id": 55330,
+    "name": "RONA+  Waterdown",
+    "city": "Dundas",
+    "province": "Ontario"
+  },
+  {
+    "id": 33040,
+    "name": "RONA Hamilton (Rymal Road)",
+    "city": "Hamilton",
+    "province": "Ontario"
+  },
+  {
+    "id": 33080,
+    "name": "RONA Val Caron",
+    "city": "Val Caron",
+    "province": "Ontario"
+  },
+  {
+    "id": 8281,
+    "name": "RONA Dawson Building Centres",
+    "city": "Guelph",
+    "province": "Ontario"
+  },
+  {
+    "id": 82971,
+    "name": "RONA+ Ancaster",
+    "city": "Ancaster",
+    "province": "Ontario"
+  },
+  {
+    "id": 8290,
+    "name": "RONA Elora Building Supplies",
+    "city": "Elora",
+    "province": "Ontario"
+  },
+  {
+    "id": 83224,
+    "name": "RONA+ Cambridge",
+    "city": "Cambridge",
+    "province": "Ontario"
+  },
+  {
+    "id": 4261,
+    "name": "RONA Roland Tremblay & Fils Inc. / Baie-Comeau",
+    "city": "Baie-Comeau",
+    "province": "Québec"
+  },
+  {
+    "id": 82492,
+    "name": "RONA+ Brantford",
+    "city": "Brantford",
+    "province": "Ontario"
+  },
+  {
+    "id": 83710,
+    "name": "RONA+ Kitchener",
+    "city": "Kitchener",
+    "province": "Ontario"
+  },
+  {
+    "id": 12930,
+    "name": "RONA Moffatt & Powell / Hanover",
+    "city": "Hanover",
+    "province": "Ontario"
+  },
+  {
+    "id": 82889,
+    "name": "RONA+ Waterloo West",
+    "city": "Waterloo",
+    "province": "Ontario"
+  },
+  {
+    "id": 4920,
+    "name": "Miller Lake RONA",
+    "city": "Miller Lake",
+    "province": "Ontario"
+  },
+  {
+    "id": 4171,
+    "name": "RONA Quincaillerie Grégoire & Fils Inc. / Matane",
+    "city": "Matane",
+    "province": "Québec"
+  },
+  {
+    "id": 4935,
+    "name": "Southampton RONA",
+    "city": "Southampton",
+    "province": "Ontario"
+  },
+  {
+    "id": 33420,
+    "name": "RONA Simcoe",
+    "city": "Simcoe",
+    "province": "Ontario"
+  },
+  {
+    "id": 8315,
+    "name": "RONA Tim's And Co.Home Centre / Little Current",
+    "city": "Little Current",
+    "province": "Ontario"
+  },
+  {
+    "id": 117,
+    "name": "RONA Sonnenburg Hardware Ltd / Massey",
+    "city": "Massey",
+    "province": "Ontario"
+  },
+  {
+    "id": 4850,
+    "name": "Kincardine RONA",
+    "city": "Kincardine",
+    "province": "Ontario"
+  },
+  {
+    "id": 12830,
+    "name": "RONA Moffatt & Powell / Mitchell",
+    "city": "Mitchell",
+    "province": "Ontario"
+  },
+  {
+    "id": 12870,
+    "name": "RONA Moffatt & Powell / Tillsonburg",
+    "city": "Tillsonburg",
+    "province": "Ontario"
+  },
+  {
+    "id": 7940,
+    "name": "RONA Timmins",
+    "city": "Timmins",
+    "province": "Ontario"
+  },
+  {
+    "id": 12950,
+    "name": "RONA Moffatt & Powell / Seaforth",
+    "city": "Seaforth",
+    "province": "Ontario"
+  },
+  {
+    "id": 1155,
+    "name": "Springfield RONA",
+    "city": "Springfield",
+    "province": "Ontario"
+  },
+  {
+    "id": 12910,
+    "name": "RONA Moffatt & Powell / Exeter",
+    "city": "Exeter",
+    "province": "Ontario"
+  },
+  {
+    "id": 82641,
+    "name": "RONA+ N.W. London",
+    "city": "London",
+    "province": "Ontario"
+  },
+  {
+    "id": 12820,
+    "name": "RONA Moffatt & Powell / London",
+    "city": "London",
+    "province": "Ontario"
+  },
+  {
+    "id": 83063,
+    "name": "RONA+ S.W. London",
+    "city": "London",
+    "province": "Ontario"
+  },
+  {
+    "id": 33430,
+    "name": "RONA St-Thomas",
+    "city": "St Thomas",
+    "province": "Ontario"
+  },
+  {
+    "id": 13177,
+    "name": "RONA Algoma Builders Supply / Elliot Lake",
+    "city": "Elliot Lake",
+    "province": "Ontario"
+  },
+  {
+    "id": 1608,
+    "name": "Store Mag",
+    "city": "New Richmond",
+    "province": "Québec"
+  },
+  {
+    "id": 12970,
+    "name": "RONA Moffatt & Powell / Grand Bend",
+    "city": "Grand Bend",
+    "province": "Ontario"
+  },
+  {
+    "id": 12920,
+    "name": "Moffatt & Powell RONA Strathroy",
+    "city": "Strathroy",
+    "province": "Ontario"
+  },
+  {
+    "id": 1165,
+    "name": "Dutton RONA",
+    "city": "Dutton",
+    "province": "Ontario"
+  },
+  {
+    "id": 3340,
+    "name": "RONA Moncton",
+    "city": "Moncton",
+    "province": "New Brunswick"
+  },
+  {
+    "id": 7730,
+    "name": "RONA MSJ Building Supplies",
+    "city": "Barrington Passage",
+    "province": "Nova Scotia"
+  },
+  {
+    "id": 43220,
+    "name": "RONA Bois de construction Sept-Iles Cartier",
+    "city": "Port-Cartier",
+    "province": "Québec"
+  },
+  {
+    "id": 1145,
+    "name": "Rodney RONA",
+    "city": "Rodney",
+    "province": "Ontario"
+  },
+  {
+    "id": 3595,
+    "name": "RONA Eudore  A Melanson et Fils Ltée / Cocagne",
+    "city": "Cocagne",
+    "province": "New Brunswick"
+  },
+  {
+    "id": 83066,
+    "name": "RONA+ Sarnia",
+    "city": "Sarnia",
+    "province": "Ontario"
+  },
+  {
+    "id": 3070,
+    "name": "RONA Kapuskasing",
+    "city": "Kapuskasing",
+    "province": "Ontario"
+  },
+  {
+    "id": 43280,
+    "name": "RONA Bois de construction Sept-Iles Cartier",
+    "city": "Sept-Iles",
+    "province": "Québec"
+  },
+  {
+    "id": 33570,
+    "name": "RONA Chatham",
+    "city": "Chatham",
+    "province": "Ontario"
+  },
+  {
+    "id": 6970,
+    "name": "RONA Maurice Goupil Inc. / Chandler",
+    "city": "Chandler",
+    "province": "Québec"
+  },
+  {
+    "id": 33610,
+    "name": "RONA Wallaceburg",
+    "city": "Wallaceburg",
+    "province": "Ontario"
+  },
+  {
+    "id": 6240,
+    "name": "RONA GG'S Building Centre (Moose Factory)",
+    "city": "Moose Factory",
+    "province": "Ontario"
+  },
+  {
+    "id": 6245,
+    "name": "RONA GG'S Building Centre (Moosonee)",
+    "city": "Moosonee",
+    "province": "Ontario"
+  },
+  {
+    "id": 1855,
+    "name": "RONA Sauve's Home Centre / Tilbury",
+    "city": "Tilbury",
+    "province": "Ontario"
+  },
+  {
+    "id": 1860,
+    "name": "RONA Sauve's Home Centre / Comber",
+    "city": "Comber",
+    "province": "Ontario"
+  },
+  {
+    "id": 243,
+    "name": "RONA Laurent Roy Gaspé Ltée / Gaspé",
+    "city": "Gaspé",
+    "province": "Québec"
+  },
+  {
+    "id": 1850,
+    "name": "RONA Sauve's Home Centre Ltd / Belle River",
+    "city": "Belle River",
+    "province": "Ontario"
+  },
+  {
+    "id": 1075,
+    "name": "RONA Tantallon",
+    "city": "Upper Tantallon",
+    "province": "Nova Scotia"
+  },
+  {
+    "id": 5600,
+    "name": "RONA Matériaux Armand Dumaresq",
+    "city": "Gaspé",
+    "province": "Québec"
+  },
+  {
+    "id": 33150,
+    "name": "RONA Leamington",
+    "city": "Leamington",
+    "province": "Ontario"
+  },
+  {
+    "id": 83712,
+    "name": "RONA+ Windsor East",
+    "city": "Windsor",
+    "province": "Ontario"
+  },
+  {
+    "id": 83010,
+    "name": "RONA+ Windsor South",
+    "city": "Windsor",
+    "province": "Ontario"
+  },
+  {
+    "id": 1065,
+    "name": "RONA Halifax",
+    "city": "Halifax",
+    "province": "Nova Scotia"
+  },
+  {
+    "id": 1070,
+    "name": "RONA Elmsdale",
+    "city": "Elmsdale",
+    "province": "Nova Scotia"
+  },
+  {
+    "id": 3330,
+    "name": "RONA Charlottetown",
+    "city": "Charlottetown",
+    "province": "Prince Edward Island"
+  },
+  {
+    "id": 5380,
+    "name": "RONA Le Quincaillier Fermont",
+    "city": "Fermont",
+    "province": "Québec"
+  },
+  {
+    "id": 3021,
+    "name": "RONA Quincaillerie Turbo Inc. / Cap-aux-Meules",
+    "city": "Cap-aux-Meules",
+    "province": "Québec"
+  },
+  {
+    "id": 4505,
+    "name": "RONA Fitz's Enterprises Limited / Wabush",
+    "city": "Wabush",
+    "province": "Newfoundland and Labrador"
+  },
+  {
+    "id": 8175,
+    "name": "RONA Family First Hardware",
+    "city": "Arichat",
+    "province": "Nova Scotia"
+  },
+  {
+    "id": 8949,
+    "name": "RONA Don Ray Lumber / Sydney Mines",
+    "city": "Sydney Mines",
+    "province": "Nova Scotia"
+  },
+  {
+    "id": 8989,
+    "name": "RONA Stephen's Home Centre / Sydney",
+    "city": "Sydney",
+    "province": "Nova Scotia"
+  },
+  {
+    "id": 2201,
+    "name": "Derrible SPM",
+    "city": "Saint-Pierre et Miquelon",
+    "province": null
+  },
+  {
+    "id": 630,
+    "name": "Rona Dryden",
+    "city": "Dryden",
+    "province": "Ontario"
+  },
+  {
+    "id": 6208,
+    "name": "RONA Lac du Bonnet",
+    "city": "Lac du Bonnet",
+    "province": "Manitoba"
+  },
+  {
+    "id": 1629,
+    "name": "RONA La Broquerie Lumber / La Broquerie",
+    "city": "La Broquerie",
+    "province": "Manitoba"
+  },
+  {
+    "id": 83718,
+    "name": "RONA+ Winnipeg East",
+    "city": "Winnipeg",
+    "province": "Manitoba"
+  },
+  {
+    "id": 620,
+    "name": "RONA Gimli",
+    "city": "Gimli",
+    "province": "Manitoba"
+  },
+  {
+    "id": 83285,
+    "name": "RONA+ South Winnipeg",
+    "city": "Winnipeg",
+    "province": "Manitoba"
+  },
+  {
+    "id": 64890,
+    "name": "RONA+ Winnipeg Central",
+    "city": "Winnipeg",
+    "province": "Manitoba"
+  },
+  {
+    "id": 625,
+    "name": "RONA Teulon",
+    "city": "Teulon",
+    "province": "Manitoba"
+  },
+  {
+    "id": 8824,
+    "name": "RONA Valley Enterprises Ltd. / Rosenort",
+    "city": "Rosenort",
+    "province": "Manitoba"
+  },
+  {
+    "id": 64670,
+    "name": "RONA Winkler",
+    "city": "Winkler",
+    "province": "Manitoba"
+  },
+  {
+    "id": 5688,
+    "name": "RONA Portage La Prairie",
+    "city": "Portage La Prairie",
+    "province": "Manitoba"
+  },
+  {
+    "id": 2235,
+    "name": "RONA J&G Supply / Brandon",
+    "city": "Brandon",
+    "province": "Manitoba"
+  },
+  {
+    "id": 2027,
+    "name": "RONA Delmar's Hardware Ltd / Melita",
+    "city": "Melita",
+    "province": "Manitoba"
+  },
+  {
+    "id": 6075,
+    "name": "RONA Weyburn",
+    "city": "Weyburn",
+    "province": "Saskatchewan"
+  },
+  {
+    "id": 8622,
+    "name": "RONA Pinecrest Lumber Ltd. / Nipawin",
+    "city": "Nipawin",
+    "province": "Saskatchewan"
+  },
+  {
+    "id": 63840,
+    "name": "Home & Garden RONA / Regina",
+    "city": "Regina",
+    "province": "Saskatchewan"
+  },
+  {
+    "id": 83208,
+    "name": "RONA+ S. Regina",
+    "city": "Regina",
+    "province": "Saskatchewan"
+  },
+  {
+    "id": 2527,
+    "name": "RONA Humboldt  Lumber Mart Ltd",
+    "city": "Humboldt",
+    "province": "Saskatchewan"
+  },
+  {
+    "id": 63670,
+    "name": "RONA Moose Jaw",
+    "city": "Moose Jaw",
+    "province": "Saskatchewan"
+  },
+  {
+    "id": 63600,
+    "name": "RONA Prince Albert",
+    "city": "Prince Albert",
+    "province": "Saskatchewan"
+  },
+  {
+    "id": 6285,
+    "name": "RONA La Ronge",
+    "city": "La Ronge",
+    "province": "Saskatchewan"
+  },
+  {
+    "id": 63650,
+    "name": "Home & Garden RONA / Saskatoon",
+    "city": "Saskatoon",
+    "province": "Saskatchewan"
+  },
+  {
+    "id": 83163,
+    "name": "RONA+ W. Saskatoon",
+    "city": "Saskatoon",
+    "province": "Saskatchewan"
+  },
+  {
+    "id": 4470,
+    "name": "Goodsoil Lumber",
+    "city": "Goodsoil",
+    "province": "Saskatchewan"
+  },
+  {
+    "id": 6680,
+    "name": "RONA Macklin",
+    "city": "Macklin",
+    "province": "Saskatchewan"
+  },
+  {
+    "id": 66200,
+    "name": "RONA Lloydminster",
+    "city": "Lloydminster",
+    "province": "Alberta"
+  },
+  {
+    "id": 8122,
+    "name": "RONA Cold Lake",
+    "city": "Cold Lake",
+    "province": "Alberta"
+  },
+  {
+    "id": 66210,
+    "name": "RONA Medicine Hat",
+    "city": "Medicine Hat",
+    "province": "Alberta"
+  },
+  {
+    "id": 4359,
+    "name": "Vermilion RONA",
+    "city": "Vermilion",
+    "province": "Alberta"
+  },
+  {
+    "id": 6733,
+    "name": "RONA Cal's Hardware Ltd / Elk Point",
+    "city": "ELK POINT",
+    "province": "Alberta"
+  },
+  {
+    "id": 62450,
+    "name": "RONA Fort McMurray",
+    "city": "Fort McMurray",
+    "province": "Alberta"
+  },
+  {
+    "id": 7645,
+    "name": "RONA Vegreville",
+    "city": "Vegreville",
+    "province": "Alberta"
+  },
+  {
+    "id": 66150,
+    "name": "RONA Camrose",
+    "city": "Camrose",
+    "province": "Alberta"
+  },
+  {
+    "id": 83230,
+    "name": "RONA+ Lethbridge",
+    "city": "Lethbridge",
+    "province": "Alberta"
+  },
+  {
+    "id": 66190,
+    "name": "RONA Lethbridge",
+    "city": "Lethbridge",
+    "province": "Alberta"
+  },
+  {
+    "id": 66390,
+    "name": "RONA Sherwood Park (Wye Road)",
+    "city": "Sherwood Park",
+    "province": "Alberta"
+  },
+  {
+    "id": 83309,
+    "name": "RONA+ Sherwood Park",
+    "city": "Sherwood Park",
+    "province": "Alberta"
+  },
+  {
+    "id": 83158,
+    "name": "RONA+ N.E. Edmonton",
+    "city": "Edmonton",
+    "province": "Alberta"
+  },
+  {
+    "id": 66160,
+    "name": "RONA Edmonton (Southside)",
+    "city": "Edmonton",
+    "province": "Alberta"
+  },
+  {
+    "id": 82952,
+    "name": "RONA+ Edmonton - South Common",
+    "city": "Edmonton",
+    "province": "Alberta"
+  },
+  {
+    "id": 66320,
+    "name": "RONA Strathmore",
+    "city": "Strathmore",
+    "province": "Alberta"
+  },
+  {
+    "id": 66470,
+    "name": "RONA Leduc",
+    "city": "Leduc",
+    "province": "Alberta"
+  },
+  {
+    "id": 83313,
+    "name": "RONA+ St. Albert",
+    "city": "St. Albert",
+    "province": "Alberta"
+  },
+  {
+    "id": 83211,
+    "name": "RONA+ Edmonton-West",
+    "city": "Edmonton",
+    "province": "Alberta"
+  },
+  {
+    "id": 66220,
+    "name": "RONA Red Deer (North)",
+    "city": "Red Deer",
+    "province": "Alberta"
+  },
+  {
+    "id": 83105,
+    "name": "RONA+ Red Deer",
+    "city": "Red Deer",
+    "province": "Alberta"
+  },
+  {
+    "id": 66460,
+    "name": "RONA Spruce Grove",
+    "city": "Spruce Grove",
+    "province": "Alberta"
+  },
+  {
+    "id": 66110,
+    "name": "RONA Calgary (Forest Lawn)",
+    "city": "Calgary",
+    "province": "Alberta"
+  },
+  {
+    "id": 88007,
+    "name": "RONA+ Calgary - Crossiron",
+    "city": "Rocky View County",
+    "province": "Alberta"
+  },
+  {
+    "id": 82953,
+    "name": "RONA+ Calgary - McKenzie",
+    "city": "Calgary",
+    "province": "Alberta"
+  },
+  {
+    "id": 62860,
+    "name": "Home & Garden RONA / Calgary (Sunridge)",
+    "city": "Calgary",
+    "province": "Alberta"
+  },
+  {
+    "id": 83059,
+    "name": "RONA+ Calgary - Sunridge",
+    "city": "Calgary",
+    "province": "Alberta"
+  },
+  {
+    "id": 8080,
+    "name": "RONA OLDS",
+    "city": "Olds",
+    "province": "Alberta"
+  },
+  {
+    "id": 83714,
+    "name": "RONA+ Calgary (MacLeod)",
+    "city": "Calgary",
+    "province": "Alberta"
+  },
+  {
+    "id": 83318,
+    "name": "RONA+ S.W. Calgary (Signal Hill)",
+    "city": "Calgary",
+    "province": "Alberta"
+  },
+  {
+    "id": 66120,
+    "name": "RONA Calgary (Bowness)",
+    "city": "Calgary",
+    "province": "Alberta"
+  },
+  {
+    "id": 83706,
+    "name": "RONA+ Calgary (Crowfoot)",
+    "city": "Calgary",
+    "province": "Alberta"
+  },
+  {
+    "id": 2695,
+    "name": "RONA Pincher Creek",
+    "city": "Pincher Creek",
+    "province": "Alberta"
+  },
+  {
+    "id": 214,
+    "name": "RONA Black Diamond",
+    "city": "Black Diamond",
+    "province": "Alberta"
+  },
+  {
+    "id": 12110,
+    "name": "RONA Cranbrook Building Centre Ltd. / Cranbrook",
+    "city": "Cranbrook",
+    "province": "British Columbia"
+  },
+  {
+    "id": 8999,
+    "name": "RONA Invermere",
+    "city": "Invermere",
+    "province": "British Columbia"
+  },
+  {
+    "id": 2585,
+    "name": "La Crete RONA Building Centre",
+    "city": "La Crete",
+    "province": "Alberta"
+  },
+  {
+    "id": 61830,
+    "name": "RONA Golden",
+    "city": "Golden",
+    "province": "British Columbia"
+  },
+  {
+    "id": 8550,
+    "name": "Maglio Building Centre, Nelson",
+    "city": "Nelson",
+    "province": "British Columbia"
+  },
+  {
+    "id": 8560,
+    "name": "Maglio Building Centre, Trail",
+    "city": "Trail",
+    "province": "British Columbia"
+  },
+  {
+    "id": 66180,
+    "name": "RONA Grande Prairie",
+    "city": "Grande Prairie",
+    "province": "Alberta"
+  },
+  {
+    "id": 2930,
+    "name": "RONA Salmon Arm",
+    "city": "Salmon Arm",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61300,
+    "name": "RONA Vernon",
+    "city": "Vernon",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61700,
+    "name": "Home & Garden RONA / Kelowna",
+    "city": "Kelowna",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61490,
+    "name": "RONA Penticton",
+    "city": "Penticton",
+    "province": "British Columbia"
+  },
+  {
+    "id": 8444,
+    "name": "RONA Fort St-John",
+    "city": "Fort St John",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61310,
+    "name": "RONA Kamloops",
+    "city": "Kamloops",
+    "province": "British Columbia"
+  },
+  {
+    "id": 7240,
+    "name": "RONA Interlakes Building Supplies Ltd / Lone Butte",
+    "city": "Lone Butte",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61340,
+    "name": "RONA Williams Lake",
+    "city": "Williams Lake",
+    "province": "British Columbia"
+  },
+  {
+    "id": 8530,
+    "name": "FVBS Hope",
+    "city": "Hope",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61320,
+    "name": "RONA Quesnel",
+    "city": "Quesnel",
+    "province": "British Columbia"
+  },
+  {
+    "id": 1890,
+    "name": "RONA Prince George",
+    "city": "Prince George",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61390,
+    "name": "RONA Chilliwack",
+    "city": "Chilliwack",
+    "province": "British Columbia"
+  },
+  {
+    "id": 83322,
+    "name": "RONA+ Abbotsford",
+    "city": "Abbotsford",
+    "province": "British Columbia"
+  },
+  {
+    "id": 8470,
+    "name": "RONA Fraser Valley / Mission",
+    "city": "Mission",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61220,
+    "name": "RONA Abbotsford",
+    "city": "Abbotsford",
+    "province": "British Columbia"
+  },
+  {
+    "id": 8570,
+    "name": "FVBS Abbotsford",
+    "city": "Abbotsford",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61190,
+    "name": "RONA Maple Ridge",
+    "city": "Maple Ridge",
+    "province": "British Columbia"
+  },
+  {
+    "id": 8345,
+    "name": "RONA Walnut Grove Urban",
+    "city": "Langley",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61810,
+    "name": "RONA Langley Bypass",
+    "city": "Langley",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61460,
+    "name": "RONA Whistler",
+    "city": "Whistler",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61260,
+    "name": "RONA Coquitlam",
+    "city": "Coquitlam",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61720,
+    "name": "RONA Surrey (Fleetwood)",
+    "city": "Surrey",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61290,
+    "name": "RONA Coquitlam (Austin)",
+    "city": "Coquitlam",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61240,
+    "name": "RONA Surrey (South Surrey)",
+    "city": "Surrey",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61270,
+    "name": "RONA Burnaby",
+    "city": "Burnaby",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61450,
+    "name": "RONA Squamish",
+    "city": "Squamish",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61740,
+    "name": "RONA North Vancouver (Park & Tilford)",
+    "city": "North Vancouver",
+    "province": "British Columbia"
+  },
+  {
+    "id": 83704,
+    "name": "RONA+ Vancouver - Grandview",
+    "city": "Vancouver",
+    "province": "British Columbia"
+  },
+  {
+    "id": 8140,
+    "name": "RONA North Vancouver",
+    "city": "North Vancouver",
+    "province": "British Columbia"
+  },
+  {
+    "id": 8880,
+    "name": "RONA Tsawwassen Commons",
+    "city": "Tsawwassen",
+    "province": "British Columbia"
+  },
+  {
+    "id": 8040,
+    "name": "RONA Richmond",
+    "city": "Richmond",
+    "province": "British Columbia"
+  },
+  {
+    "id": 5818,
+    "name": "RONA Coast Builders / Sechelt",
+    "city": "Sechelt",
+    "province": "British Columbia"
+  },
+  {
+    "id": 83330,
+    "name": "RONA+ Victoria (Tillicum)",
+    "city": "Victoria",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61040,
+    "name": "RONA Cobble Hill",
+    "city": "Cobble Hill",
+    "province": "British Columbia"
+  },
+  {
+    "id": 83702,
+    "name": "RONA+ Langford",
+    "city": "Victoria",
+    "province": "British Columbia"
+  },
+  {
+    "id": 9551,
+    "name": "RONA Coast Builders / Madeira Park",
+    "city": "Madeira Park",
+    "province": "British Columbia"
+  },
+  {
+    "id": 61030,
+    "name": "RONA Nanaimo",
+    "city": "Nanaimo",
+    "province": "British Columbia"
+  },
+  {
+    "id": 83323,
+    "name": "RONA+ Nanaimo",
+    "city": "Nanaimo",
+    "province": "British Columbia"
+  },
+  {
+    "id": 2791,
+    "name": "RONA Powell River",
+    "city": "Powell River",
+    "province": "British Columbia"
+  },
+  {
+    "id": 1215,
+    "name": "RONA / Alert Bay",
+    "city": "Alert Bay",
+    "province": "British Columbia"
+  },
+  {
+    "id": 1195,
+    "name": "RONA / Port McNeill",
+    "city": "Port McNeill",
+    "province": "British Columbia"
+  }
+]
