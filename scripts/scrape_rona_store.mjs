@@ -171,6 +171,187 @@ async function loadAllProducts(page) {
   }
 }
 
+function collectCandidateArrays(data) {
+  const candidates = [];
+  const visit = (value, pathKey) => {
+    if (!value) return;
+    if (Array.isArray(value) && value.length > 0) {
+      if (value.every((item) => item && typeof item === 'object')) {
+        candidates.push({ path: pathKey, items: value });
+      }
+    } else if (typeof value === 'object') {
+      for (const [key, nested] of Object.entries(value)) {
+        visit(nested, pathKey ? `${pathKey}.${key}` : key);
+      }
+    }
+  };
+  visit(data, '');
+  return candidates;
+}
+
+function extractNumber(value) {
+  if (value == null) return null;
+  if (typeof value === 'number' && Number.isFinite(value)) {
+    return value;
+  }
+  if (typeof value === 'string') {
+    return parsePrice(value);
+  }
+  return null;
+}
+
+function pickFirstValue(item, keys) {
+  for (const key of keys) {
+    const parts = key.split('.');
+    let current = item;
+    let found = true;
+    for (const part of parts) {
+      if (!current || typeof current !== 'object' || !(part in current)) {
+        found = false;
+        break;
+      }
+      current = current[part];
+    }
+    if (found && current != null) {
+      return current;
+    }
+  }
+  return null;
+}
+
+function normalizeCapturedProducts(items, baseUrl) {
+  const normalized = [];
+  const seen = new Set();
+  for (const item of items) {
+    if (!item || typeof item !== 'object') continue;
+
+    const name = pickFirstValue(item, [
+      'name',
+      'productName',
+      'title',
+      'shortDescription',
+      'description',
+      'label',
+    ]);
+
+    const urlValue = pickFirstValue(item, [
+      'url',
+      'pdpUrl',
+      'productUrl',
+      'seoUrl',
+      'link',
+      'href',
+      'attributes.webPath',
+    ]);
+
+    const imageValue = pickFirstValue(item, [
+      'image',
+      'imageUrl',
+      'thumbnail',
+      'thumbnailUrl',
+      'primaryImage',
+      'images.0.url',
+      'images.0',
+      'image.url',
+    ]);
+
+    const sku =
+      pickFirstValue(item, ['sku', 'productId', 'id', 'code']) ??
+      '';
+
+    const regularPriceRaw = pickFirstValue(item, [
+      'regularPrice',
+      'listPrice',
+      'originalPrice',
+      'wasPrice',
+      'basePrice',
+      'price.regular',
+      'price.original',
+      'price.list',
+      'price.value',
+    ]);
+    const salePriceRaw = pickFirstValue(item, [
+      'salePrice',
+      'offerPrice',
+      'currentPrice',
+      'specialPrice',
+      'price.sale',
+      'price.current',
+      'price.now',
+    ]);
+
+    const regularPrice =
+      extractNumber(regularPriceRaw) ??
+      extractNumber(pickFirstValue(item, ['price', 'prices', 'priceText']));
+    const salePrice = extractNumber(salePriceRaw);
+
+    const discountPct = computeDiscountPct(regularPrice, salePrice);
+
+    const resolvedUrl = urlValue
+      ? new URL(String(urlValue), baseUrl).toString()
+      : '';
+    if (!name || !resolvedUrl) continue;
+
+    if (seen.has(resolvedUrl)) continue;
+    seen.add(resolvedUrl);
+
+    normalized.push({
+      name: String(name),
+      url: resolvedUrl,
+      image: imageValue ? String(imageValue) : '',
+      sku: sku ? String(sku) : '',
+      regularPrice,
+      salePrice,
+      discountPct,
+    });
+  }
+  return normalized;
+}
+
+function extractProductsFromCaptured(captured, baseUrl) {
+  const priorityKeys = [
+    'CatalogEntryView',
+    'catalogEntryView',
+    'products',
+    'items',
+    'results',
+    'searchResults',
+    'entries',
+  ];
+  let bestMatch = null;
+  for (const entry of captured) {
+    if (!entry?.data) continue;
+    for (const key of priorityKeys) {
+      if (Array.isArray(entry.data[key])) {
+        const items = entry.data[key];
+        if (!bestMatch || items.length > bestMatch.items.length) {
+          bestMatch = { url: entry.url, path: key, items };
+        }
+      }
+    }
+    if (!bestMatch) {
+      const candidates = collectCandidateArrays(entry.data);
+      for (const candidate of candidates) {
+        if (!bestMatch || candidate.items.length > bestMatch.items.length) {
+          bestMatch = { url: entry.url, path: candidate.path, items: candidate.items };
+        }
+      }
+    }
+  }
+
+  if (!bestMatch) {
+    return { products: [], matched: null };
+  }
+
+  const normalized = normalizeCapturedProducts(bestMatch.items, baseUrl);
+  return {
+    products: normalized.filter(
+      (item) => item.discountPct !== null && item.discountPct >= 50
+    ),
+    matched: bestMatch,
+  };
+}
+
 async function extractProducts(page) {
   const tileData = await page.$$eval(SELECTORS.productTiles, (tiles) =>
     tiles.map((tile) => {
@@ -314,12 +495,31 @@ export async function scrapeStore(store) {
   let parsedCount = 0;
   let keptCount = 0;
   let products = [];
+  const captured = [];
+  const responseUrls = [];
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({
     viewport: { width: 1280, height: 720 },
   });
   const page = await context.newPage();
   page.setDefaultTimeout(DEFAULT_TIMEOUT);
+  page.on('response', async (res) => {
+    try {
+      const url = res.url();
+      responseUrls.push(url);
+      const ct = (res.headers()['content-type'] || '').toLowerCase();
+      if (!ct.includes('application/json')) return;
+      if (!/catalog|search|product|entry|promo|clearance|wcs|api/i.test(url)) {
+        return;
+      }
+      const data = await res.json();
+      if (JSON.stringify(data).length > 5000) {
+        captured.push({ url, data });
+      }
+    } catch (error) {
+      // ignore response capture errors
+    }
+  });
 
   try {
     const targetUrl = resolveClearanceUrl(store);
@@ -342,13 +542,47 @@ export async function scrapeStore(store) {
         path: path.join(baseDir, 'debug.png'),
         fullPage: true,
       });
+
+      console.log(`[rona] captured json endpoints=${captured.length}`);
+      if (captured[0]?.url) {
+        console.log(`[rona] captured[0].url=${captured[0].url}`);
+      }
+      if (captured.length > 0) {
+        const extractedFromJson = extractProductsFromCaptured(
+          captured,
+          'https://www.rona.ca'
+        );
+        if (extractedFromJson.matched) {
+          console.log(
+            `[rona] matched json endpoint=${extractedFromJson.matched.url} path=${extractedFromJson.matched.path} items=${extractedFromJson.matched.items.length}`
+          );
+        }
+        if (extractedFromJson.products.length > 0) {
+          products = extractedFromJson.products;
+          keptCount = extractedFromJson.products.length;
+          parsedCount = extractedFromJson.products.length;
+        }
+      } else {
+        const filteredUrls = responseUrls.filter((url) =>
+          /search|catalog|wcs/i.test(url)
+        );
+        if (filteredUrls.length > 0) {
+          await fs.writeFile(
+            path.join(baseDir, 'network_urls.txt'),
+            `${filteredUrls.join('\n')}\n`,
+            'utf8'
+          );
+        }
+      }
     }
 
-    const extracted = await extractProducts(page);
-    products = extracted.products;
-    const { parsedCount: parsed, keptCount: kept } = extracted;
-    parsedCount = parsed;
-    keptCount = kept;
+    if (products.length === 0) {
+      const extracted = await extractProducts(page);
+      products = extracted.products;
+      const { parsedCount: parsed, keptCount: kept } = extracted;
+      parsedCount = parsed;
+      keptCount = kept;
+    }
 
     await writeOutput({
       store,
