@@ -24,6 +24,12 @@ jobs:
           SHARD_INDEX: '1'
           TOTAL_SHARDS: '4'
         run: node scripts/run_rona_shard.mjs
+      - name: Quick data check
+        run: |
+          echo "JSON count:"
+          ls -la data/rona/*/data.json 2>/dev/null | wc -l || true
+          echo "Top 5 biggest files:"
+          (du -ah data/rona/*/data.json 2>/dev/null | sort -hr | head -n 5) || true
 
       - name: Upload shard artifact
         uses: actions/upload-artifact@v4
