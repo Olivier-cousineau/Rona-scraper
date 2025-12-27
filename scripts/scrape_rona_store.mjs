@@ -20,6 +20,14 @@ const CLICK_SELECTORS = {
   ],
 };
 
+const WAF_MARKERS = [
+  { label: 'verify-you-are-human', regex: /verify you are human/i },
+  { label: 'cloudflare', regex: /cloudflare/i },
+  { label: 'checking-your-browser', regex: /checking your browser/i },
+  { label: 'attention-required', regex: /attention required/i },
+  { label: 'cf-challenge', regex: /cf-challenge|challenge-platform|cdn-cgi\/challenge/i },
+];
+
 function logStoreSummary({ slug, storeName, tiles, parsed, kept, ms, reason }) {
   const parts = [
     `[rona] store=${slug}`,
@@ -103,6 +111,18 @@ function toCsv(rows) {
 async function writeCsv(filePath, rows) {
   await ensureDir(path.dirname(filePath));
   await fs.writeFile(filePath, toCsv(rows), 'utf8');
+}
+
+async function detectWaf(page) {
+  const title = await page.title().catch(() => '');
+  const html = await page.content().catch(() => '');
+  const combined = `${title}\n${html}`;
+  for (const marker of WAF_MARKERS) {
+    if (marker.regex.test(combined)) {
+      return { blocked: true, reason: marker.label };
+    }
+  }
+  return { blocked: false, reason: null };
 }
 
 async function clickFirstVisible(page, selectors, options = {}) {
@@ -464,7 +484,7 @@ async function extractProducts(page) {
   };
 }
 
-async function writeOutput({ store, items, stats, debug }) {
+async function writeOutput({ store, items, stats, debug, status = 'scraped', blocked = false }) {
   const baseDir = path.join('data', 'rona', store.slug);
   const jsonPath = path.join(baseDir, 'data.json');
   const csvPath = path.join(baseDir, 'data.csv');
@@ -472,6 +492,8 @@ async function writeOutput({ store, items, stats, debug }) {
   await writeJson(jsonPath, {
     store: { slug: store.slug, name: store.name },
     scrapedAt: new Date().toISOString(),
+    status,
+    blocked,
     count: items.length,
     items,
     stats,
@@ -495,6 +517,8 @@ export async function scrapeStore(store) {
   let parsedCount = 0;
   let keptCount = 0;
   let products = [];
+  let status = 'scraped';
+  let blocked = false;
   const captured = [];
   const responseUrls = [];
   let candidateResponses = 0;
@@ -620,6 +644,33 @@ export async function scrapeStore(store) {
     const targetUrl = resolveClearanceUrl(store);
     await page.goto(targetUrl, { waitUntil: 'domcontentloaded' });
     await handleOneTrust(page);
+    const wafCheck = await detectWaf(page);
+    if (wafCheck.blocked) {
+      status = 'blocked';
+      blocked = true;
+      console.log(
+        `[rona] BLOCKED store=${store.slug} name="${store.name}" reason="${wafCheck.reason}"`
+      );
+      const baseDir = path.join('data', 'rona', store.slug);
+      const debug = { html: null, screenshot: null };
+      try {
+        debug.html = await page.content();
+        debug.screenshot = await page.screenshot({ fullPage: true });
+      } catch (debugError) {
+        // ignore debug capture errors
+      }
+      await writeNetworkDebug(baseDir);
+      await writeOutput({
+        store,
+        items: [],
+        stats: { tiles: 0, parsedCount: 0, keptCount: 0 },
+        debug,
+        status,
+        blocked,
+      });
+      console.log(`[rona] END store=${store.slug}`);
+      return [];
+    }
     await loadAllProducts(page);
     const tilesLocator = page.locator(SELECTORS.productTiles);
     tilesCount = await tilesLocator.count();
@@ -674,6 +725,8 @@ export async function scrapeStore(store) {
       store,
       items: products,
       stats: { tiles: tilesCount, parsedCount, keptCount },
+      status,
+      blocked,
     });
 
     const ms = Date.now() - t0;
@@ -712,6 +765,8 @@ export async function scrapeStore(store) {
       items: products,
       stats: { tiles: tilesCount, parsedCount, keptCount },
       debug,
+      status,
+      blocked,
     });
     throw error;
   } finally {
